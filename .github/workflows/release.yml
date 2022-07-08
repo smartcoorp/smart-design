@@ -24,19 +24,23 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Cache node modules
-        uses: actions/cache@v1
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - uses: actions/cache@v3
+        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
         with:
-          path: node_modules
-          key: yarn-deps-${{ hashFiles('yarn.lock') }}
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
+            ${{ runner.os }}-node-
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           #👇 npm token, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/distribute/ to obtain it
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          yarn install --frozen-lockfile
-          yarn build
-          yarn release
+          npm ci
+          npm run build
+          npm run release
