@@ -6,10 +6,12 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
+    "build": "npm run test && npm run rollup",
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "release": "auto shipit --base-branch=master"
   },
   "author": "",
   "license": "ISC",
