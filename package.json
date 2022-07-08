@@ -4,7 +4,7 @@
     "registry": "https://npm.pkg.github.com/pistachi73"
   },
   "version": "0.1.0",
-  "description": "",
+  "description": "Smartcookie design system",
   "scripts": {
     "build": "npm run test && npm run rollup",
     "rollup": "rollup -c",
@@ -13,7 +13,7 @@
     "build-storybook": "build-storybook",
     "release": "auto shipit --base-branch=master"
   },
-  "author": "",
+  "author": "Óscar Pulido Castillo",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.6",
