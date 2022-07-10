@@ -1,0 +1,11 @@
+/** Spacing token: **2px**   */ export const spaceXXS: string = "2px";
+/** Spacing token: **4px**   */ export const spaceXS: string = "4px";
+/** Spacing token: **8px**   */ export const spaceS: string = "8px";
+/** Spacing token: **12px**  */ export const spaceM: string = "12px";
+/** Spacing token: **16px**  */ export const spaceL: string = "16px";
+/** Spacing token: **24px**  */ export const spaceXL: string = "24px";
+/** Spacing token: **32px**  */ export const spaceXXL: string = "32px";
+/** Spacing token: **48px**  */ export const space3XL: string = "48px";
+/** Spacing token: **68px**  */ export const space4XL: string = "68px";
+/** Spacing token: **92px**  */ export const space5XL: string = "92px";
+/** Spacing token: **122px** */ export const space6XL: string = "122px";
