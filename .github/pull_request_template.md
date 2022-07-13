@@ -1,5 +1,5 @@
 ## Related Jira ticket 🎫
-[SMART-](https://smartcookie.atlassian.net/browse/SMART-)
+[SC-](https://smartcookie.atlassian.net/browse/SC-)
 
 
 ## Implementation details 🕵️
