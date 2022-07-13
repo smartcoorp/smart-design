@@ -10,6 +10,7 @@ export const BaseStyles = createGlobalStyle`
   }
   
   body {
+    font-family: 'Montserrat', 'Trebuchet MS', Arial, 'Helvetica Neue', sans-serif;
     background: white;
     color: black;
     font-size: ${scale080};
