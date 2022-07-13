@@ -21,7 +21,7 @@ const fonts = [
   {
     fontFamily: "Montserrat",
     fontWeight: 700,
-    fontStyle: "bold",
+    fontStyle: "normal",
     woff2: F.fontMontserratBoldWoff2,
     woff: F.fontMontserratBoldWoff,
     ttf: F.fontMontserratBoldTtf,
@@ -29,7 +29,7 @@ const fonts = [
   {
     fontFamily: "Montserrat",
     fontWeight: 700,
-    fontStyle: "bold",
+    fontStyle: "italic",
     woff2: F.fontMontserratBoldItalicWoff2,
     woff: F.fontMontserratBoldItalicWoff,
     ttf: F.fontMontserratBoldItalicTtf,
