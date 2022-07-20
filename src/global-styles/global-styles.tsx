@@ -6,7 +6,7 @@ import { NormalizeStyles } from "./normalized-styles";
 interface Props {
   children: React.ReactNode;
 }
-const GlobalStyles: React.FC<Props> = ({ children }) => {
+export const GlobalStyles: React.FC<Props> = ({ children }) => {
   return (
     <>
       <NormalizeStyles />
@@ -16,4 +16,3 @@ const GlobalStyles: React.FC<Props> = ({ children }) => {
     </>
   );
 };
-export default GlobalStyles;
