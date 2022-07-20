@@ -1,3 +1,22 @@
+# v0.1.3 (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
+- [SC-20] Build body component [#9](https://github.com/smartcoorp/smart-design/pull/9) ([@pistachi73](https://github.com/pistachi73))
+- [SC-15] Create global styles (skip ci) [#8](https://github.com/smartcoorp/smart-design/pull/8) ([@pistachi73](https://github.com/pistachi73))
+- [SC-16] Add global fonts (skip ci) [#7](https://github.com/smartcoorp/smart-design/pull/7) ([@pistachi73](https://github.com/pistachi73))
+- [SC-14] Add base styles (skip ci) [#6](https://github.com/smartcoorp/smart-design/pull/6) ([@pistachi73](https://github.com/pistachi73))
+
+#### ⚠️ Pushed to `master`
+
+- Update README.md with Getting sterted configuration (skip ci) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.2 (Fri Jul 08 2022)
 
 #### ⚠️ Pushed to `master`
