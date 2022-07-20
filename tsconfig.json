@@ -18,5 +18,5 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "exclude": ["./templates"]
+  "exclude": ["./templates", "./helpers", "**/*.test.js", "**/*.stories.tsx"]
 }
