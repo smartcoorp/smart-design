@@ -1,3 +1,15 @@
+# v0.1.4 (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
+- [SC-22] Fix GlobalStyles export bug [#10](https://github.com/smartcoorp/smart-design/pull/10) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.3 (Wed Jul 20 2022)
 
 #### 🐛 Bug Fix
