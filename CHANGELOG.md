@@ -1,3 +1,15 @@
+# v0.1.5 (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
+- [SC-23] Fix rollup excluding fonts issue [#11](https://github.com/smartcoorp/smart-design/pull/11) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.4 (Wed Jul 20 2022)
 
 #### 🐛 Bug Fix
