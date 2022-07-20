@@ -1,3 +1,3 @@
 export * from "./components";
 export * from "./tokens";
-export { default } from "./global-styles";
+export { GlobalStyles } from "./global-styles";
