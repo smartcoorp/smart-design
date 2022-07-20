@@ -1,3 +1,15 @@
+# v0.1.6 (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
+- Fix fonts imports [#12](https://github.com/smartcoorp/smart-design/pull/12) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.5 (Wed Jul 20 2022)
 
 #### 🐛 Bug Fix
