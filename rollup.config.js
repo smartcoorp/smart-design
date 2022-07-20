@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import url from "@rollup/plugin-url";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
@@ -26,8 +27,13 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
+
       typescript({
         tsconfig: "./tsconfig.json",
+      }),
+      url({
+        include: ["**/*.woff", "**/*.woff2", "**/*.ttf"],
+        limit: Infinity,
       }),
       terser(),
     ],

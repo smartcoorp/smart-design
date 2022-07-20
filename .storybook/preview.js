@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalStyles from "./../src/global-styles";
+import { GlobalStyles } from "./../src/global-styles";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
