@@ -1,3 +1,18 @@
+# v0.1.7 (Thu Jul 21 2022)
+
+#### 🐛 Bug Fix
+
+- [SC-24] Enable rollup to bundle multiple folders [#16](https://github.com/smartcoorp/smart-design/pull/16) ([@pistachi73](https://github.com/pistachi73))
+- [SC-25] Addapt create-component script to inherit ts types (skip ci) [#15](https://github.com/smartcoorp/smart-design/pull/15) ([@pistachi73](https://github.com/pistachi73))
+- [SC-19] Build Headline component (skip ci) [#14](https://github.com/smartcoorp/smart-design/pull/14) ([@pistachi73](https://github.com/pistachi73))
+- [SC-21] Modify create component script (skip ci) [#13](https://github.com/smartcoorp/smart-design/pull/13) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.6 (Wed Jul 20 2022)
 
 #### 🐛 Bug Fix
