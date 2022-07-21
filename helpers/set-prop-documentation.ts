@@ -26,7 +26,7 @@ export const setPropDocumentation = ({
   options,
   defaultValue,
   control,
-}: Props) => ({
+}: Props = {}) => ({
   ...(description && { ["description"]: description }),
   table: {
     ...(type && { ["type"]: { summary: type } }),

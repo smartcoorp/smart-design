@@ -12,6 +12,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "release": "auto shipit --base-branch=master",
+    "gc": "node scripts/create-component",
     "prepare": "husky install"
   },
   "author": "Óscar Pulido Castillo",

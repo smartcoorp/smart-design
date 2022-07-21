@@ -1,7 +1,7 @@
 const [, , type, component] = process.argv;
 const fs = require("fs");
 
-const hasUpperCase = (string) => !(string.toLowerCase() === string);
+const hasUpperCase = (string) => string.toLowerCase() !== string;
 const capitalizeFirstLetter = (string) => `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
 const transformToCamelcase = (string, separator) =>
   string
@@ -10,13 +10,11 @@ const transformToCamelcase = (string, separator) =>
     .join("");
 
 const replaceIndex = (string, toReplace, at, repl) => {
-  var re = new RegExp(toReplace, "g");
-  console.log(toReplace);
+  const re = new RegExp(toReplace, "g");
 
   const indexes = [...string.matchAll(re)].map((a) => a.index);
   const wantedIndexes = at.map((index) => indexes[index]);
 
-  console.log(wantedIndexes);
   return string.replace(re, function (match, i) {
     if (wantedIndexes.includes(i)) {
       return repl;
@@ -58,7 +56,7 @@ fs.readdir(COMPONENT_TEMPLATE_FOLDER, (err, filenames) => {
         fileData = replaceIndex(
           fileData,
           "Component",
-          [2, 3, 4, 6, 8, 9, 10, 11],
+          [2, 3, 4, 5, 6, 8, 10, 11, 12, 13],
           camelCaseComponentName
         );
         fileData = fileData.replace("storyType", capitalizeFirstLetter(type));
@@ -74,8 +72,8 @@ fs.readdir(COMPONENT_TEMPLATE_FOLDER, (err, filenames) => {
         `${COMPONENT_FOLDER}/${finalFilename}`,
         fileData,
         { encoding: "utf8" },
-        (err) => {
-          if (err) throw err;
+        (writeFileErr) => {
+          if (writeFileErr) throw writeFileErr;
         }
       );
     });
@@ -85,10 +83,11 @@ fs.readdir(COMPONENT_TEMPLATE_FOLDER, (err, filenames) => {
 fs.readFile(`./src/components/index.ts`, "utf8", (err, data) => {
   if (err) throw err;
 
-  fileData = data + "\n" + `export { default as ${camelCaseComponentName} } from "./${component}"`;
+  let fileData =
+    data + "\n" + `export { default as ${camelCaseComponentName} } from "./${component}"`;
   fileData = fileData.replace(/^\s*\n/gm, "");
 
-  fs.writeFile(`./src/components/index.ts`, fileData, { encoding: "utf8" }, (err) => {
-    if (err) throw err;
+  fs.writeFile(`./src/components/index.ts`, fileData, { encoding: "utf8" }, (writeFileErr) => {
+    if (writeFileErr) throw writeFileErr;
   });
 });
