@@ -1,9 +1,11 @@
 import React from "react";
-import * as S from "./component.styles";
+import { Styled } from "./component.styles";
 import { ComponentProps } from "./component.types";
 
 const Component: React.FC<ComponentProps> = () => {
-  return <S.Container>Container</S.Container>;
+  return <Styled.Container>Container</Styled.Container>;
 };
+
+Component.displayName = "Component";
 
 export default Component;

@@ -76,7 +76,7 @@ export const sizes = {
 };
 
 // *** Components ***
-const Headline = styled.h2<HeadlineTransientProps>`
+export const Headline = styled.h2<HeadlineTransientProps>`
   ${baseHeadline};
   ${({ $size }) => $size && sizes[$size]};
 

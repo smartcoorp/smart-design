@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-
 export type ComponentProps = {
-  children: ReactNode;
+  /** Content of the --- */
+  children: React.ReactNode;
 };
