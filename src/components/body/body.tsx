@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./body.styles";
+import { Styled } from "./body.styles";
 import { BodyProps } from "./body.types";
 
 const Body: React.FC<BodyProps> = ({
@@ -14,7 +14,7 @@ const Body: React.FC<BodyProps> = ({
   ...props
 }) => {
   return (
-    <S.Body
+    <Styled.Body
       $ellipsis={ellipsis}
       $fontWeight={fontWeight}
       $lineHeight={lineHeight}
@@ -26,8 +26,8 @@ const Body: React.FC<BodyProps> = ({
       {...props}
     >
       {children}
-    </S.Body>
+    </Styled.Body>
   );
 };
-
+Body.displayName = "Body";
 export default Body;

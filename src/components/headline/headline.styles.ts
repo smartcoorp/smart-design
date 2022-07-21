@@ -1,25 +1,32 @@
 import styled, { css } from "styled-components";
 
-import { mediaConfined, mediaWide } from "../../tokens";
+import {
+  mediaConfined,
+  mediaWide,
+  scale070,
+  scale080,
+  scale090,
+  scale100,
+  scale110,
+  scale130,
+  spaceL,
+  spaceM,
+} from "../../tokens";
 
-import { scale060, scale070, scale080, scale090, scale100 } from "../../tokens/scale";
-import { spaceM, spaceS, spaceL } from "../../tokens/spacing";
+import { HeadlineSize } from "./headline.types";
 
-import type { BodyCopyFontWeight, BodyCopyLineHeight, BodyCopySize } from "./body.types";
-
-type BodyTransientProps = {
+type HeadlineTransientProps = {
   $ellipsis?: boolean;
-  $fontWeight?: BodyCopyFontWeight;
-  $lineHeight?: BodyCopyLineHeight;
   $noMargin?: boolean;
-  $size: BodyCopySize;
-  $sizeConfined?: BodyCopySize;
-  $sizeWide?: BodyCopySize;
+  $size: HeadlineSize;
+  $sizeConfined?: HeadlineSize;
+  $sizeWide?: HeadlineSize;
 };
 
 // *** Base ***
-const baseBodyCopy = css`
-  line-height: 1.5;
+const baseHeadline = css`
+  font-weight: 700;
+  line-height: 1.25;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -42,10 +49,6 @@ const ellipsis = css`
 
 // *** Sizes ***
 export const sizes = {
-  xsmall: css`
-    font-size: ${scale060};
-    margin-bottom: ${spaceS};
-  `,
   small: css`
     font-size: ${scale070};
     margin-bottom: ${spaceM};
@@ -62,34 +65,19 @@ export const sizes = {
     font-size: ${scale100};
     margin-bottom: ${spaceL};
   `,
-};
-
-// *** Line-Heights ***
-export const lineHeights = {
-  dense: css`
-    line-height: 1.25;
+  xxlarge: css`
+    font-size: ${scale110};
+    margin-bottom: ${spaceL};
   `,
-  increased: css`
-    line-height: 1.65;
-  `,
-};
-
-// *** Font-Weights ***
-export const fontWeights = {
-  regular: css`
-    font-weight: 400;
-  `,
-  bold: css`
-    font-weight: 700;
+  xxxlarge: css`
+    font-size: ${scale130};
+    margin-bottom: ${spaceL};
   `,
 };
 
 // *** Components ***
-const Body = styled.p<BodyTransientProps>`
-  font-weight: 700;
-  ${baseBodyCopy};
-  ${({ $lineHeight }) => $lineHeight && lineHeights[$lineHeight]};
-  ${({ $fontWeight }) => $fontWeight && fontWeights[$fontWeight]};
+const Headline = styled.h2<HeadlineTransientProps>`
+  ${baseHeadline};
   ${({ $size }) => $size && sizes[$size]};
 
   ${({ $sizeConfined }) =>
@@ -113,5 +101,5 @@ const Body = styled.p<BodyTransientProps>`
 `;
 
 export const Styled = {
-  Body,
+  Headline,
 };

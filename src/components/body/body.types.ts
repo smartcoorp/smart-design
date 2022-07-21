@@ -1,9 +1,9 @@
-import { Body, sizes, lineHeights, fontWeights } from "./body.styles";
+import { Styled, sizes, lineHeights, fontWeights } from "./body.styles";
 
 export type BodyCopySize = keyof typeof sizes;
 export type BodyCopyLineHeight = keyof typeof lineHeights;
 export type BodyCopyFontWeight = keyof typeof fontWeights;
-export type BodyProps = React.ComponentProps<typeof Body> & {
+export type BodyProps = React.ComponentProps<typeof Styled.Body> & {
   /** Content of the body copy */
   children: React.ReactNode;
   /** Activate text truncation */
