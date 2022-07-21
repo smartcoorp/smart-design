@@ -25,7 +25,7 @@ export default {
           <Description>MDX description</Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
-          <Stories title='Component variants' />
+          <Stories title='References' />
         </>
       ),
     },
