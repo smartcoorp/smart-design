@@ -36,73 +36,33 @@ export default {
           </Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
-          <Stories title='Body variants' />
+          <Stories title='References' />
         </>
       ),
     },
   },
   argTypes: {
-    children: { description: "Content of the body copy", control: { type: "text" } },
-    size: setPropDocumentation({
-      description: "The size on mobile screens or larger",
-      type: bodySizes,
-      options: bodySizes,
-      defaultValue: "medium",
-      control: "inline-radio",
-    }),
-    sizeConfined: setPropDocumentation({
-      description: "The size on tablet screens or larger",
-      type: bodySizes,
-      options: bodySizes,
-      control: "inline-radio",
-    }),
-    sizeWide: setPropDocumentation({
-      description: "The size on screen screens or larger",
-      type: bodySizes,
-      options: bodySizes,
-      control: "inline-radio",
-    }),
-
-    fontWeight: setPropDocumentation({
-      description: "Set font-weight",
-      type: bodyWeights,
-      options: bodyWeights,
-      control: "inline-radio",
-      defaultValue: "regular",
-    }),
-
-    lineHeight: setPropDocumentation({
-      description: "Decrease or increase line-height",
-      type: bodyLineHeights,
-      options: bodyLineHeights,
-      control: "inline-radio",
-    }),
-
-    ellipsis: setPropDocumentation({
-      description: "Activate text truncation",
-      type: "boolean",
-      control: "boolean",
-    }),
-
-    noMargin: setPropDocumentation({
-      description: "Remove margin-bottom",
-      type: "boolean",
-      control: "boolean",
-    }),
+    theme: { table: { disable: true } },
+    as: { table: { disable: true } },
+    forwardedAs: { table: { disable: true } },
+    children: setPropDocumentation({ control: "text" }),
+    size: setPropDocumentation({ control: "inline-radio" }),
+    sizeConfined: setPropDocumentation({ control: "inline-radio" }),
+    sizeWide: setPropDocumentation({ control: "inline-radio" }),
   },
 } as ComponentMeta<typeof BodyComponent>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof BodyComponent> = (args) => <BodyComponent {...args} />;
 
-export const Body = Template.bind({});
+export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Body.args = {
-  children: "Hello this the body of the body component",
+Default.args = {
+  children: "Hello this the Default of the body component",
   size: "medium",
   fontWeight: "regular",
 };
-Body.parameters = { ...noCanvas };
+Default.parameters = { ...noCanvas };
 
 const PropContainer = styled.div`
   display: grid;
