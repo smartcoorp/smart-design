@@ -8,8 +8,6 @@ const StyledButton = styled.button`
   padding: 30px;
   background-color: red;
 `;
-const Button = (props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
   return <StyledButton>{props.label}</StyledButton>;
 };
-
-export default Button;

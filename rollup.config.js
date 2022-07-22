@@ -1,7 +1,6 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
+import typescript from "rollup-plugin-typescript2";
 import url from "@rollup/plugin-url";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
@@ -16,6 +15,7 @@ const plugins = [
 
   typescript({
     tsconfig: "./tsconfig.json",
+    useTsconfigDeclarationDir: true,
   }),
   url({
     include: ["**/*.woff", "**/*.woff2", "**/*.ttf"],
@@ -34,7 +34,6 @@ const getFolders = (entry) => {
 
 //loop through your folders and generate a rollup obj per folder
 const folderBuilds = getFolders("./src").flatMap((folder) => {
-  console.log(folder);
   return [
     {
       input: `src/${folder}/index.ts`,
@@ -45,13 +44,8 @@ const folderBuilds = getFolders("./src").flatMap((folder) => {
         exports: "named",
       },
       plugins,
-      external: ["styled-components"],
+      external: ["styled-components", "react", "react-dom"],
     },
-    // {
-    //   input: `dist/${folder}/index.js`,
-    //   output: { file: `dist/${folder}/index.d.ts`, format: "esm" },
-    //   plugins: [dts()],
-    // },
   ];
 });
 
@@ -74,9 +68,4 @@ export default [
     external: ["styled-components"],
   },
   ...folderBuilds,
-  {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
-  },
 ];

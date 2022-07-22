@@ -4,7 +4,7 @@ import type { HeadlineProps } from "./headline.types";
 
 import { Styled } from "./headline.styles";
 
-const Headline = ({
+export const Headline = ({
   children,
   ellipsis,
   noMargin,
@@ -27,5 +27,3 @@ const Headline = ({
 );
 
 Headline.displayName = "Headline";
-
-export default Headline;

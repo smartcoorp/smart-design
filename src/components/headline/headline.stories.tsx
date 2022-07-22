@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Headline from "./headline";
+import { Headline } from "./headline";
 import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
 
 import {
@@ -12,6 +12,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
+
 import { noCanvas } from "../../../helpers/stories-helpers";
 import styled from "styled-components";
 import { scale160, space4XL, spaceM } from "../../tokens";

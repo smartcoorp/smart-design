@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import BodyComponent from "./body";
+import { Body } from "./body";
 import { BodyCopySize, BodyCopyFontWeight } from "./body.types";
 import { fontWeights, lineHeights, sizes } from "./body.styles";
 import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
@@ -15,16 +15,16 @@ import {
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
 import styled from "styled-components";
-import { scale120, space4XL, spaceM } from "../../tokens";
+import { scale120, scale160, space4XL, spaceM } from "../../tokens";
 import { noCanvas } from "../../../helpers/stories-helpers";
+import { BodyCopyLineHeight } from "./body.types";
 
 const bodySizes: string[] = Object.keys(sizes);
 const bodyWeights: string[] = Object.keys(fontWeights);
-const bodyLineHeights: string[] = Object.keys(lineHeights);
 
 export default {
   title: "Typography/Body",
-  component: BodyComponent,
+  component: Body,
   parameters: {
     docs: {
       page: () => (
@@ -50,10 +50,10 @@ export default {
     sizeConfined: setPropDocumentation({ control: "inline-radio" }),
     sizeWide: setPropDocumentation({ control: "inline-radio" }),
   },
-} as ComponentMeta<typeof BodyComponent>;
+} as ComponentMeta<typeof Body>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof BodyComponent> = (args) => <BodyComponent {...args} />;
+const Template: ComponentStory<typeof Body> = (args) => <Body {...args} />;
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -62,7 +62,10 @@ Default.args = {
   size: "medium",
   fontWeight: "regular",
 };
-Default.parameters = { ...noCanvas };
+Default.parameters = {
+  ...noCanvas,
+  controls: { hideNoControlsWarning: true },
+};
 
 const PropContainer = styled.div`
   display: grid;
@@ -71,7 +74,7 @@ const PropContainer = styled.div`
   padding: ${spaceM} 0;
 `;
 const TypeContainer = styled.div`
-  width: ${scale120};
+  width: ${scale160};
 `;
 
 export const Sizes = () => {
@@ -86,15 +89,15 @@ export const Sizes = () => {
   return (
     <>
       {bodySizes.map((key) => (
-        <PropContainer>
+        <PropContainer key={key}>
           <TypeContainer>
-            <BodyComponent size={key as BodyCopySize} noMargin>
+            <Body size={key as BodyCopySize} noMargin>
               {sizePx[key]}
-            </BodyComponent>
+            </Body>
           </TypeContainer>
-          <BodyComponent size={key as BodyCopySize} noMargin>
+          <Body size={key as BodyCopySize} noMargin>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </BodyComponent>
+          </Body>
         </PropContainer>
       ))}
     </>
@@ -118,15 +121,15 @@ export const FontWeights = () => {
   return (
     <>
       {bodyWeights.map((key) => (
-        <PropContainer>
+        <PropContainer key={key}>
           <TypeContainer>
-            <BodyComponent noMargin fontWeight={key as BodyCopyFontWeight}>
+            <Body noMargin fontWeight={key as BodyCopyFontWeight}>
               {sizePx[key]}
-            </BodyComponent>
+            </Body>
           </TypeContainer>
-          <BodyComponent noMargin fontWeight={key as BodyCopyFontWeight}>
+          <Body noMargin fontWeight={key as BodyCopyFontWeight}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </BodyComponent>
+          </Body>
         </PropContainer>
       ))}
     </>
@@ -138,6 +141,46 @@ FontWeights.parameters = {
   docs: {
     description: {
       story: "Font weights for `Body` component",
+    },
+  },
+};
+
+export const LineHeights = () => {
+  const lineHeightsMapping: any = {
+    dense: "dense",
+    default: "default",
+    increased: "increased",
+  };
+
+  let lineHeightsTypes = Object.keys(lineHeights);
+  lineHeightsTypes[2] = lineHeightsTypes[1];
+  lineHeightsTypes[1] = "default";
+
+  return (
+    <>
+      {lineHeightsTypes.map((key) => (
+        <PropContainer key={key}>
+          <TypeContainer>
+            <Body noMargin lineHeight={key as BodyCopyLineHeight}>
+              {lineHeightsMapping[key]}
+            </Body>
+          </TypeContainer>
+          <Body noMargin lineHeight={key as BodyCopyLineHeight}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas, lorem eu
+            condimentum faucibus, est urna sodales magna, consequat elementum ligula lorem efficitur
+            ex. Proin auctor tortor non dolor consectetur tincidunt.
+          </Body>
+        </PropContainer>
+      ))}
+    </>
+  );
+};
+
+LineHeights.parameters = {
+  ...noCanvas,
+  docs: {
+    description: {
+      story: "Line heights for `Body` component",
     },
   },
 };

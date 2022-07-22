@@ -1,3 +1,3 @@
-export { default as Button } from "./button";
-export { default as Body } from "./body"
-export { default as Headline } from "./headline"
+export { Button } from "./button";
+export { Body } from "./body";
+export { Headline } from "./headline";

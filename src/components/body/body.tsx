@@ -2,7 +2,7 @@ import React from "react";
 import { Styled } from "./body.styles";
 import { BodyProps } from "./body.types";
 
-const Body: React.FC<BodyProps> = ({
+export const Body: React.FC<BodyProps> = ({
   children,
   ellipsis,
   fontWeight = "regular",
@@ -30,4 +30,3 @@ const Body: React.FC<BodyProps> = ({
   );
 };
 Body.displayName = "Body";
-export default Body;
