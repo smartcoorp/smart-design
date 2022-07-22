@@ -69,8 +69,17 @@
   ],
   "types": "dist/index.d.ts",
   "exports": {
-    "./components": "./dist/components/index.js",
-    "./global-styles": "./dist/global-styles/index.js",
-    "./tokens": "./dist/tokens/index.js"
+    "./components": {
+      "import": "./dist/components/index.js",
+      "types": "./dist/components/index.d.ts"
+    },
+    "./global-styles": {
+      "import": "./dist/global-styles/index.js",
+      "types": "./dist/global-styles/index.d.ts"
+    },
+    "./tokens": {
+      "import": "./dist/tokens/index.js",
+      "types": "./dist/tokens/index.d.ts"
+    }
   }
 }
