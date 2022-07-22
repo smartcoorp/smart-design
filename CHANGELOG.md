@@ -1,3 +1,15 @@
+# v0.1.11 (Fri Jul 22 2022)
+
+#### ⚠️ Pushed to `master`
+
+- add exports to package.json ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.10 (Fri Jul 22 2022)
 
 #### ⚠️ Pushed to `master`
