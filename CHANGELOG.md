@@ -1,3 +1,15 @@
+# v0.1.8 (Fri Jul 22 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Adapt rollup to support multiple folders ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.7 (Thu Jul 21 2022)
 
 #### 🐛 Bug Fix
