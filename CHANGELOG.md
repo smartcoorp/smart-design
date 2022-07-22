@@ -1,3 +1,16 @@
+# v0.1.10 (Fri Jul 22 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of https://github.com/smartcoorp/smart-design ([@pistachi73](https://github.com/pistachi73))
+- adapt frank-build package.json move ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.9 (Fri Jul 22 2022)
 
 #### ⚠️ Pushed to `master`
