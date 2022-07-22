@@ -34,4 +34,3 @@ jobs:
           npm ci
           npm run build
           npm run release
-          npm publish ./dist
