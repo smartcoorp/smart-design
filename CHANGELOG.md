@@ -1,3 +1,16 @@
+# v0.1.14 (Fri Jul 22 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of https://github.com/smartcoorp/smart-design ([@pistachi73](https://github.com/pistachi73))
+- change package.json exports to match documentation ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.13 (Fri Jul 22 2022)
 
 #### ⚠️ Pushed to `master`
