@@ -44,9 +44,28 @@ const folderBuilds = getFolders("./src").flatMap((folder) => {
         exports: "named",
       },
       plugins,
-      external: ["styled-components", "react", "react-dom"],
+      external: ["styled-components"],
     },
   ];
 });
 
-export default [...folderBuilds];
+export default [
+  {
+    input: ["src/index.ts"],
+    output: [
+      {
+        file: packageJson.module,
+        format: "esm",
+        sourcemap: true,
+      },
+      {
+        file: packageJson.main,
+        format: "cjs",
+        sourcemap: true,
+      },
+    ],
+    plugins,
+    external: ["styled-components"],
+  },
+  ...folderBuilds,
+];
