@@ -49,23 +49,4 @@ const folderBuilds = getFolders("./src").flatMap((folder) => {
   ];
 });
 
-export default [
-  {
-    input: ["src/index.ts"],
-    output: [
-      {
-        file: packageJson.module,
-        format: "esm",
-        sourcemap: true,
-      },
-      {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-      },
-    ],
-    plugins,
-    external: ["styled-components"],
-  },
-  ...folderBuilds,
-];
+export default [...folderBuilds];

@@ -7,7 +7,7 @@
   "description": "Smartcookie design system",
   "scripts": {
     "build": "npm run test && npm run rollup",
-    "rollup": "rollup -c && node scripts/frank-build",
+    "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

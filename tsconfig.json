@@ -15,7 +15,14 @@
     "moduleResolution": "node",
     "declarationDir": "dist",
     "outDir": "dist",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["dist/*"],
+      "global-styles/*": ["dist/*"],
+      "tokens/*": ["dist/*"]
+    }
   },
   "exclude": ["./dist/**/*", "./templates", "./helpers", "**/*.test.js", "**/*.stories.tsx"]
 }
