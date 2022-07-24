@@ -13,7 +13,8 @@
     "build-storybook": "build-storybook",
     "release": "auto shipit --base-branch=master",
     "gc": "node scripts/create-component",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "validate": "npm run build && npm run build-storybook"
   },
   "author": "Óscar Pulido Castillo",
   "license": "ISC",
