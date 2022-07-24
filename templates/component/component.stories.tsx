@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Component from "./component";
+import { Component } from "./component";
 
 import {
   Title,

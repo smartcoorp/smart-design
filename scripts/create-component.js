@@ -83,8 +83,7 @@ fs.readdir(COMPONENT_TEMPLATE_FOLDER, (err, filenames) => {
 fs.readFile(`./src/components/index.ts`, "utf8", (err, data) => {
   if (err) throw err;
 
-  let fileData =
-    data + "\n" + `export { default as ${camelCaseComponentName} } from "./${component}"`;
+  let fileData = data + "\n" + `export { ${camelCaseComponentName} } from "./${component}"`;
   fileData = fileData.replace(/^\s*\n/gm, "");
 
   fs.writeFile(`./src/components/index.ts`, fileData, { encoding: "utf8" }, (writeFileErr) => {
