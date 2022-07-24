@@ -65,25 +65,23 @@
   "files": [
     "dist"
   ],
-  "type": "module",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js"
-    },
-    "./global-styles": {
-      "types": "./dist/global-styles/index.d.ts",
-      "import": "./dist/global-styles/index.js"
-    },
-    "./tokens": {
-      "types": "./dist/tokens/index.d.ts",
-      "import": "./dist/tokens/index.js"
+    "./components": "./dist/components/index.js",
+    "./global-styles": "./dist/global-styles/index.js",
+    "./tokens": "./dist/tokens/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "components": [
+        "dist/components/index.d.ts"
+      ],
+      "tokens": [
+        "dist/tokens/index.d.ts"
+      ],
+      "global-styles": [
+        "dist/global-styles/index.d.ts"
+      ]
     }
   },
   "main": "dist/cjs/index.js",
