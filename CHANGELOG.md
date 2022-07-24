@@ -1,3 +1,16 @@
+# v0.1.15 (Sun Jul 24 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Set type to module and change config file extension to cjs ([@pistachi73](https://github.com/pistachi73))
+- add module to package.json ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.14 (Fri Jul 22 2022)
 
 #### ⚠️ Pushed to `master`
