@@ -1,3 +1,16 @@
+# v0.1.16 (Sun Jul 24 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of https://github.com/smartcoorp/smart-design ([@pistachi73](https://github.com/pistachi73))
+- add typesversions field to package.json ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.15 (Sun Jul 24 2022)
 
 #### ⚠️ Pushed to `master`
