@@ -24,5 +24,12 @@
       "tokens/*": ["dist/*"]
     }
   },
-  "exclude": ["./dist/**/*", "./templates", "./helpers", "**/*.test.js", "**/*.stories.tsx"]
+  "exclude": [
+    "./templates",
+    "./helpers",
+    "./shared",
+    "./dist/**/*",
+    "**/*.test.js",
+    "**/*.stories.tsx"
+  ]
 }
