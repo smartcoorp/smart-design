@@ -21,8 +21,7 @@ import styled, { css } from "styled-components";
 import { ButtonSizes, ButtonVariants } from "./button.types";
 
 import { ring } from "../../styles/ring";
-import { Loader } from "../loader";
-
+import { DotLoading } from "../dot-loading";
 type ButtonTransientProps = {
   $ellipsis?: boolean;
   $iconOnly: boolean;
@@ -264,14 +263,6 @@ const InnerContent = styled.div<InnerContentTransientProps>`
   position: relative;
 `;
 
-const smallLoading = css`
-  transform: translate(-50%, -50%) scale(0.6);
-`;
-
-const mediumLoading = css`
-  transform: translate(-50%, -50%) scale(0.7);
-`;
-
 // eslint-disable-next-line prettier/prettier
 const LoadingContainer = styled.div`
   left: 50%;
@@ -279,7 +270,7 @@ const LoadingContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
 `;
-const Loading = styled(Loader)`
+const Loading = styled(DotLoading)`
   left: 50%;
   position: absolute !important;
   top: 50%;

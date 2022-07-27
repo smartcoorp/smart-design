@@ -1,8 +1,6 @@
 import React from "react";
 import { Styled } from "./button.styles";
 import { ButtonProps } from "./button.types";
-import { Loader } from "../loader/loader.stories";
-
 export const Button: React.FC<ButtonProps> = ({
   children,
   disabled = false,

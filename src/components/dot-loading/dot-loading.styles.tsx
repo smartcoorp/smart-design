@@ -1,32 +1,20 @@
-import { scale040, scale050, scale060, scale090, scale100 } from "../../../src/tokens";
+import {
+  scale040,
+  scale050,
+  scale060,
+  scale100,
+  scale030,
+  scale080,
+  scale110,
+} from "../../../src/tokens";
 import styled, { css, keyframes } from "styled-components";
-import { LoaderSizes } from "./loader.types";
-import { scale030, scale080, scale110 } from "../../tokens/scale";
+import { DotLoadingSizes } from "./dot-loading.types";
 
-const ellipsis1 = keyframes`
-0%{
-  transform: scale(0);
-}
-100% {
-  transform: scale(1);
-}`;
+type DotLoadingTransientProps = {
+  $size: DotLoadingSizes;
+};
 
-const ellipsis2 = (size: LoaderSizes) => keyframes`
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(${movementPx[size]}, 0);
-  }`;
-
-const ellipsis3 = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }`;
-export const movementPx = {
+const movementPx = {
   small: scale080,
   medium: scale100,
   large: scale110,
@@ -67,11 +55,32 @@ const dotSizes = {
     height: ${scale060};
   `,
 };
-type LoaderTransientProps = {
-  $size: LoaderSizes;
-};
 
-const Loader = styled.div<LoaderTransientProps>`
+const ellipsis1 = keyframes`
+0%{
+  transform: scale(0);
+}
+100% {
+  transform: scale(1);
+}`;
+
+const ellipsis2 = (size: DotLoadingSizes) => keyframes`
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(${movementPx[size]}, 0);
+  }`;
+
+const ellipsis3 = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }`;
+
+const Loader = styled.div<DotLoadingTransientProps>`
   display: inline-flex;
   position: relative;
   ${({ $size }) => sizes[$size]}
@@ -102,13 +111,12 @@ const Loader = styled.div<LoaderTransientProps>`
     ${({ $size }) =>
       css`
         left: calc(${initialPx[$size]} + ${movementPx[$size]} * 2);
-        animation: ${ellipsis2($size)} 0.6s infinite;
       `}
     animation: ${ellipsis3} 0.6s infinite;
   }
 `;
 
-const LoaderDot = styled.div<LoaderTransientProps>`
+const LoaderDot = styled.div<DotLoadingTransientProps>`
   position: absolute;
   top: 0;
   left: 0;

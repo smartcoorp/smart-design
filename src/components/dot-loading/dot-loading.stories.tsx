@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Loader as LoaderComponent } from "./loader";
+import { DotLoading as DotLoadingComponent } from "./dot-loading";
 import { noCanvas } from "../../../helpers/stories-helpers";
 import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
 
@@ -16,8 +16,8 @@ import {
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Component/Loader",
-  component: LoaderComponent,
+  title: "Component/Dot Loading",
+  component: DotLoadingComponent,
   parameters: {
     docs: {
       page: () => (
@@ -25,8 +25,8 @@ export default {
           <Title>Loader</Title>
           <Subtitle>Loading animation</Subtitle>
           <Description>
-            `Loader` component is the loading animation for SC projects. It can be used in different
-            situations
+            `DotLoading` component is the loading animation for SC projects. It can be used in
+            different situations
           </Description>
           <Description>- loading state for `Button` component</Description>
           <Description>- loading page</Description>
@@ -43,14 +43,16 @@ export default {
     forwardedAs: { table: { disable: true } },
     size: setPropDocumentation({ control: "inline-radio" }),
   },
-} as ComponentMeta<typeof LoaderComponent>;
+} as ComponentMeta<typeof DotLoadingComponent>;
 
-const Template: ComponentStory<typeof LoaderComponent> = (args) => <LoaderComponent {...args} />;
+const Template: ComponentStory<typeof DotLoadingComponent> = (args) => (
+  <DotLoadingComponent {...args} />
+);
 
-export const Loader = Template.bind({});
-Loader.args = {
+export const DotLoading = Template.bind({});
+DotLoading.args = {
   size: "medium",
 };
-Loader.parameters = {
+DotLoading.parameters = {
   ...noCanvas,
 };

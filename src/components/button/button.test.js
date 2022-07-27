@@ -59,6 +59,6 @@ describe(`Button`, () => {
     renderComponent({ loading: true });
 
     expect(screen.queryByText(/button/i)).not.toBeVisible();
-    expect(screen.getByTestId("loader")).toBeInTheDocument();
+    expect(screen.getByTestId("dot-loading")).toBeInTheDocument();
   });
 });

@@ -6,7 +6,7 @@
   "version": "0.1.16",
   "description": "Smartcookie design system",
   "scripts": {
-    "build": "npm run test && npm run rollup",
+    "build": "rm -rf dist && npm run test && npm run rollup",
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
@@ -75,7 +75,6 @@
     "./global-styles": "./dist/global-styles/index.js",
     "./tokens": "./dist/tokens/index.js",
     "./styles": "./dist/styles/index.js"
-
   },
   "typesVersions": {
     "*": {
