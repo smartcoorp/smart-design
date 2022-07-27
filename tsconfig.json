@@ -21,7 +21,8 @@
     "paths": {
       "components/*": ["dist/*"],
       "global-styles/*": ["dist/*"],
-      "tokens/*": ["dist/*"]
+      "tokens/*": ["dist/*"],
+      "styles/*": ["dist/*"]
     }
   },
   "exclude": [

@@ -3,6 +3,7 @@ type Props = {
   type?: any;
   options?: any;
   defaultValue?: any;
+  labels?: any;
   control?:
     | "boolean"
     | "number"
@@ -26,6 +27,7 @@ export const setPropDocumentation = ({
   options,
   defaultValue,
   control,
+  labels,
 }: Props = {}) => ({
   ...(description && { ["description"]: description }),
   table: {
@@ -33,5 +35,5 @@ export const setPropDocumentation = ({
     ...(defaultValue && { ["defaultValue"]: { summary: defaultValue } }),
   },
   ...(options && { ["options"]: options }),
-  ...(control && { ["control"]: { type: control } }),
+  ...(control && { ["control"]: { type: control, ...(labels && { ["labels"]: labels }) } }),
 });
