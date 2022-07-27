@@ -1,4 +1,5 @@
 import React from "react";
+import { MemoryRouter } from "react-router-dom";
 import { GlobalStyles } from "./../src/global-styles";
 
 export const parameters = {
@@ -14,7 +15,9 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <GlobalStyles>
-      <Story />
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
     </GlobalStyles>
   ),
 ];

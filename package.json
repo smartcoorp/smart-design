@@ -28,6 +28,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
     "@rollup/plugin-url": "^7.0.0",
+    "@storybook/addon-a11y": "^6.5.9",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-docs": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
@@ -49,6 +50,7 @@
     "husky": "^8.0.1",
     "jest": "^28.1.2",
     "jest-environment-jsdom": "^28.1.2",
+    "react-icons": "^4.4.0",
     "rollup": "^2.76.0",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -58,6 +60,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   },
   "peerDependencies": {
@@ -70,7 +73,9 @@
   "exports": {
     "./components": "./dist/components/index.js",
     "./global-styles": "./dist/global-styles/index.js",
-    "./tokens": "./dist/tokens/index.js"
+    "./tokens": "./dist/tokens/index.js",
+    "./styles": "./dist/styles/index.js"
+
   },
   "typesVersions": {
     "*": {
@@ -82,6 +87,9 @@
       ],
       "global-styles": [
         "dist/global-styles/index.d.ts"
+      ],
+      "styles": [
+        "dist/styles/index.d.ts"
       ]
     }
   },
