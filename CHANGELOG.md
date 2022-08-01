@@ -1,3 +1,22 @@
+# v0.1.17 (Mon Aug 01 2022)
+
+#### 🐛 Bug Fix
+
+- [SC-28] Build FormField component [#21](https://github.com/smartcoorp/smart-design/pull/21) ([@pistachi73](https://github.com/pistachi73))
+- [SC-11] Build button and dot loading component (skip ci) [#20](https://github.com/smartcoorp/smart-design/pull/20) ([@pistachi73](https://github.com/pistachi73))
+- [SC-27] Build Caption component (skip ci) [#18](https://github.com/smartcoorp/smart-design/pull/18) ([@pistachi73](https://github.com/pistachi73))
+- [SC-18] Build hero component (skip ci) [#17](https://github.com/smartcoorp/smart-design/pull/17) ([@pistachi73](https://github.com/pistachi73))
+
+#### 📝 Documentation
+
+- [SC-4] Document design tokens (skip ci) [#19](https://github.com/smartcoorp/smart-design/pull/19) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.16 (Sun Jul 24 2022)
 
 #### ⚠️ Pushed to `master`
