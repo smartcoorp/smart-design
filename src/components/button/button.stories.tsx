@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button } from "./button";
-import { IoBarChartSharp, IoAccessibilitySharp } from "react-icons/io5";
 
 import {
   Title,
@@ -17,9 +16,9 @@ import styled from "styled-components";
 import { noCanvas } from "../../../helpers/stories-helpers";
 import { ButtonSizes } from "./button.types";
 import { Headline } from "../headline/headline";
-import { scale040, scale100 } from "../../tokens";
-
-const icons = { null: null, IoBarChartSharp, IoAccessibilitySharp };
+import { scale100 } from "../../tokens";
+import { iconArgs } from "../../../helpers/icon-args";
+import { IoBarChartSharp, IoAccessibilitySharp } from "react-icons/io5";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -47,18 +46,7 @@ export default {
     theme: { table: { disable: true } },
     as: { table: { disable: true } },
     forwardedAs: { table: { disable: true } },
-    icon: {
-      options: Object.keys(icons), // An array of serializable values
-      mapping: icons, // Maps serializable option values to complex arg values
-      control: {
-        type: "select", // Type 'select' is automatically inferred when 'options' is defined
-        labels: {
-          // 'labels' maps option values to string labels
-          IoBarChartSharp: "IoBarChartSharp",
-          IoAccessibilitySharp: "IoAccessibilitySharp",
-        },
-      },
-    },
+    icon: iconArgs,
     children: setPropDocumentation({ control: "text" }),
     to: setPropDocumentation({ control: "text" }),
     href: setPropDocumentation({ control: "text" }),
@@ -217,10 +205,25 @@ export const TextVariant = () => {
 
 PrimaryVariant.parameters = {
   ...noCanvas,
+  docs: {
+    description: {
+      story: "`Button` component primary variant with it's states and sizes",
+    },
+  },
 };
 SecondaryVariant.parameters = {
   ...noCanvas,
+  docs: {
+    description: {
+      story: "`Button` component secondary variant with it's states and sizes",
+    },
+  },
 };
 TextVariant.parameters = {
   ...noCanvas,
+  docs: {
+    description: {
+      story: "`Button` component text variant with it's states and sizes",
+    },
+  },
 };
