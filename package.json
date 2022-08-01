@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/pistachi73"
   },
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Smartcookie design system",
   "scripts": {
     "build": "rm -rf dist && npm run test && npm run rollup",
