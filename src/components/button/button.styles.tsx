@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
+
+import { DotLoading } from "../dot-loading";
+
 import {
   borderRadiusS,
   mediaConfined,
@@ -9,19 +13,15 @@ import {
   mediaWide,
   motionEasingStandard,
   motionTimeXS,
-  gray300,
-  gray400,
-  gray200,
   scale140,
   scale160,
   scale150,
-  primary400,
-} from "../../tokens";
-import styled, { css } from "styled-components";
+} from "@tokens";
+
 import { ButtonSizes, ButtonVariants } from "./button.types";
 
-import { ring } from "../../styles/ring";
-import { DotLoading } from "../dot-loading";
+import { ring } from "@styles";
+
 type ButtonTransientProps = {
   $ellipsis?: boolean;
   $iconOnly: boolean;
@@ -106,16 +106,16 @@ export const variants = {
     background-color: ${primary};
 
     &:hover {
-      background-color: ${primary400};
+      background-color: ${({ theme }) => theme.button.primary.hoverBackgroundColor};
     }
 
     &:focus-visible {
-      ${ring({ color: primary })}
+      ${({ theme }) => ring({ color: primary, offsetColor: theme.backgroundScreen })}
     }
 
     &:active {
-      color: white;
-      background-color: black;
+      color: ${({ theme }) => theme.color.invertedNeutral};
+      background-color: ${({ theme }) => theme.color.neutral};
       transform: scale(0.98);
     }
   `,
@@ -123,39 +123,45 @@ export const variants = {
     background-color: transparent;
     border-width: 2px;
     border-style: solid;
-    border-color: black;
-    color: black;
+    border-color: ${({ theme }) => theme.color.neutral};
+    color: ${({ theme }) => theme.color.neutral};
 
     &:hover {
-      background-color: ${gray200};
+      background-color: ${({ theme }) => theme.button.secondary.hoverBackgroundColor};
     }
     &:focus-visible {
-      ${ring({ color: primary })}
+      ${({ theme }) => ring({ color: primary, offsetColor: theme.backgroundScreen })}
     }
 
     &:active {
-      color: white;
-      background-color: black;
+      color: ${({ theme }) => theme.color.invertedNeutral};
+      background-color: ${({ theme }) => theme.color.neutral};
       transform: scale(0.98);
     }
   `,
   text: css`
+    color: ${({ theme }) => theme.color.neutral};
     padding: 0px !important;
+    height: 100% !important;
   `,
 };
 
 export const disabled = {
   primary: css`
-    background-color: ${gray300};
-    color: ${gray400};
+    background-color: ${({ theme }) => theme.button.primary.disabledBackgroundColor};
+    color: ${({ theme }) => theme.button.primary.disabledTextColor};
     cursor: not-allowed;
   `,
   secondary: css`
-    border: 2px solid ${gray300};
-    color: ${gray400};
+    border: 2px solid ${({ theme }) => theme.button.secondary.disabledBorderColor};
+    color: ${({ theme }) => theme.button.secondary.disabledTextColor};
     cursor: not-allowed;
   `,
-  text: css``,
+  text: css`
+    color: ${({ theme }) => theme.button.text.disabledTextColor};
+    padding: 0px !important;
+    height: 100% !important;
+  `,
 };
 
 // *** Icon ***

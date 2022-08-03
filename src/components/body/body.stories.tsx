@@ -1,9 +1,12 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "styled-components";
+
 import { Body } from "./body";
-import { BodyCopySize, BodyCopyFontWeight } from "./body.types";
+import { BodyCopySize, BodyCopyFontWeight, BodyCopyLineHeight } from "./body.types";
 import { fontWeights, lineHeights, sizes } from "./body.styles";
-import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
+
+import { setPropDocumentation, noCanvas } from "@helpers";
+import { scale160, space4XL, spaceM } from "@tokens";
 
 import {
   Title,
@@ -14,10 +17,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
-import styled from "styled-components";
-import { scale120, scale160, space4XL, spaceM } from "../../tokens";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { BodyCopyLineHeight } from "./body.types";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 const bodySizes: string[] = Object.keys(sizes);
 const bodyWeights: string[] = Object.keys(fontWeights);

@@ -1,7 +1,9 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
 
 import { Headline } from "./headline";
+
+import { render } from "@test-utils";
+import { screen } from "@testing-library/react";
 
 describe(`Headline`, () => {
   test("renders Headline", () => {

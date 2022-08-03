@@ -1,6 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Hero } from "./hero";
+import styled from "styled-components";
 
 import {
   Title,
@@ -11,14 +10,15 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
-import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
-import { noCanvas } from "../../../helpers/stories-helpers";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+
+import { Hero } from "./hero";
 import { HeroSize, HeroFontWeight } from "./hero.types";
 import { fontWeights, sizes } from "./hero.styles";
-import { scale300, space4XL, spaceM } from "../../tokens";
-import styled from "styled-components";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { scale300, space4XL, spaceM } from "@tokens";
+import { setPropDocumentation, noCanvas } from "@helpers";
+
 export default {
   title: "Typography/Hero",
   component: Hero,

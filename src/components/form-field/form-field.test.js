@@ -1,10 +1,18 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
-
+import { IoAccessibility } from "react-icons/io5";
 import { FormField } from "./form-field";
 
-const renderComponent = ({ value, ...args }) => {
-  render(<FormField value={value} {...args} />);
+import { render } from "@test-utils";
+import { screen, fireEvent } from "@testing-library/react";
+
+const onChangeMock = jest.fn();
+
+jest.mock("react-icons/io5", () => ({
+  IoAccessibility: () => <div data-testid='icon' />,
+}));
+
+const renderComponent = ({ ...args }) => {
+  render(<FormField label='formfield' id='formfield' onChange={onChangeMock} {...args} />);
 };
 
 describe(`FormField`, () => {
@@ -15,14 +23,41 @@ describe(`FormField`, () => {
   });
 
   it("should call onChange when typing", () => {
-    const onChangeMock = jest.fn();
+    renderComponent();
 
-    renderComponent({ label: "Label", id: "callOnChange", onChange: onChangeMock });
-
-    const input = screen.getByLabelText("Label");
+    const input = screen.getByLabelText("formfield");
 
     fireEvent.change(input, { target: { value: "test" } });
 
     expect(onChangeMock).toHaveBeenCalled();
+  });
+  it("should show icon", () => {
+    renderComponent({ icon: IoAccessibility });
+
+    expect(screen.getByTestId("icon")).toBeInTheDocument();
+  });
+  it("should show error message ", () => {
+    const errorMessage = "error message";
+    renderComponent({ error: true, errorMessage });
+
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
+  });
+
+  it("should show show/hide password on password variant", () => {
+    renderComponent({ variant: "password" });
+
+    expect(screen.getByTestId("formfield-password-switch")).toBeInTheDocument();
+  });
+
+  it("should toggle between text and password type on password variant", () => {
+    renderComponent({ variant: "password" });
+
+    const input = screen.getByLabelText("formfield");
+
+    expect(input).toHaveAttribute("type", "password");
+
+    fireEvent.click(screen.getByTestId("formfield-password-switch"));
+
+    expect(input).toHaveAttribute("type", "text");
   });
 });

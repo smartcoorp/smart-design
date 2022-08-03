@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import { HeadlineSize } from "./headline.types";
+
 import {
   mediaConfined,
   mediaWide,
@@ -11,9 +13,7 @@ import {
   scale130,
   spaceL,
   spaceM,
-} from "../../tokens";
-
-import { HeadlineSize } from "./headline.types";
+} from "@tokens";
 
 type HeadlineTransientProps = {
   $ellipsis?: boolean;
@@ -25,6 +25,7 @@ type HeadlineTransientProps = {
 
 // *** Base ***
 const baseHeadline = css`
+  color: ${({ theme }) => theme.typography.headlineTextColor};
   font-weight: 700;
   line-height: 1.25;
   margin-left: 0;

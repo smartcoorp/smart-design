@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import type { HeadlineProps } from "./headline.types";
-
 import { Styled } from "./headline.styles";
 
 export const Headline = ({

@@ -1,13 +1,15 @@
 import React from "react";
+import styled from "styled-components";
+
 import { ComponentMeta } from "@storybook/react";
+import { Title, Subtitle, Primary } from "@storybook/addon-docs";
+
 import * as mediaQuerysTokens from "../media";
 
-import { Title, Subtitle, Primary } from "@storybook/addon-docs";
-import styled from "styled-components";
-import { gray900, spaceS } from "../../tokens";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { DesignSystemDocumentTable } from "../../../shared/design-tokens-document-table/design-tokens-document-table";
-import { Body } from "../../components";
+import { Body } from "@components";
+import { gray900, spaceS } from "@tokens";
+import { noCanvas } from "@helpers";
+import { DesignSystemDocumentTable } from "@shared";
 
 export default {
   title: "Tokens/Media Querys",
@@ -52,7 +54,7 @@ const Line = styled.div`
   background: ${gray900};
 `;
 
-const MediaQuerysPreview = ({ tokenValue }) => {
+const MediaQuerysPreview = ({ tokenValue }: { tokenValue: string }) => {
   let interval: Interval = { max: "♾️", min: "0px" };
 
   tokenValue.split("and").map((val) => {

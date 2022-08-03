@@ -1,11 +1,13 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
-import * as motionTokens from "../motion";
 
 import { Title, Subtitle, Primary } from "@storybook/addon-docs";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { DesignSystemDocumentTable } from "../../../shared/design-tokens-document-table/design-tokens-document-table";
-import { Caption } from "../../components/caption/caption";
+import { ComponentMeta } from "@storybook/react";
+
+import * as motionTokens from "../motion";
+
+import { Caption } from "@components";
+import { noCanvas } from "@helpers";
+import { DesignSystemDocumentTable } from "@shared";
 
 export default {
   title: "Tokens/Motion",

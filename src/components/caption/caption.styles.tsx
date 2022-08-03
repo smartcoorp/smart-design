@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
-import { scale050 } from "../../tokens";
-
 import type { CaptionFontWeight, CaptionLineHeight } from "./caption.types";
+
+import { scale050 } from "@tokens";
 
 type CaptionTransientProps = {
   $ellipsis?: boolean;
@@ -13,6 +13,7 @@ type CaptionTransientProps = {
 
 // *** Base ***
 const baseCaption = css`
+  color: ${({ theme }) => theme.typography.captionTextColor};
   font-size: ${scale050};
   line-height: 1.5;
   margin-left: 0;

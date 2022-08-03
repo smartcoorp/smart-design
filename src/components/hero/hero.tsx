@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Styled } from "./hero.styles";
 import { HeroProps } from "./hero.types";
 

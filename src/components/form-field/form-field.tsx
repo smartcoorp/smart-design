@@ -1,8 +1,8 @@
 import React from "react";
-import { Caption } from "../caption";
+import { BiShow, BiHide } from "react-icons/bi";
+
 import { Styled } from "./form-field.styles";
 import { FormFieldProps } from "./form-field.types";
-import { BiShow, BiHide } from "react-icons/bi";
 
 export const FormField: React.FC<FormFieldProps> = ({
   disabled,
@@ -112,13 +112,17 @@ export const FormField: React.FC<FormFieldProps> = ({
         </Styled.Label>
       )}
       {variant === "password" && !multiline && (
-        <Styled.PasswordWrapper onClick={() => setShowPassword(!showPassword)}>
+        <Styled.PasswordWrapper
+          data-testid='formfield-password-switch'
+          filled={isFilled || hasFocus}
+          onClick={() => setShowPassword(!showPassword)}
+        >
           {showPassword ? <BiShow size={18} /> : <BiHide size={18} />}
         </Styled.PasswordWrapper>
       )}
       {error && errorMessage && (
         <Styled.ErrorMessageWrapper>
-          <Caption noMargin>{errorMessage}</Caption>
+          <Styled.ErrorCaption noMargin>{errorMessage}</Styled.ErrorCaption>
         </Styled.ErrorMessageWrapper>
       )}
     </Styled.FormFieldContainer>

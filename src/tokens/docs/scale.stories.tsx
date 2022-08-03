@@ -1,12 +1,13 @@
 import React from "react";
+import styled, { css } from "styled-components";
+
 import { ComponentMeta } from "@storybook/react";
+import { Title, Subtitle, Primary } from "@storybook/addon-docs";
 import * as scaleTokens from "../scale";
 
-import { Title, Subtitle, Primary } from "@storybook/addon-docs";
-import styled, { css } from "styled-components";
-import { borderRadiusXS, primary } from "../../tokens";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { DesignSystemDocumentTable } from "../../../shared/design-tokens-document-table/design-tokens-document-table";
+import { borderRadiusXS, primary } from "@tokens";
+import { noCanvas } from "@helpers";
+import { DesignSystemDocumentTable } from "@shared";
 
 export default {
   title: "Tokens/Scale",
@@ -37,8 +38,8 @@ const Preview = styled.div<PreviewProps>`
   background-color: ${primary};
 `;
 
-const ScalePreview = ({ tokenValue }) => {
-  const width: number = (tokenValue.split("px")[0] / 432) * 100;
+const ScalePreview = ({ tokenValue }: { tokenValue: string }) => {
+  const width: number = (parseFloat(tokenValue.split("px")[0]) / 432) * 100;
   return <Preview width={`${width}%`} />;
 };
 

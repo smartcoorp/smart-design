@@ -1,5 +1,4 @@
 import { Styled, sizes, variants } from "./button.styles";
-import { Button } from "./button";
 
 export type ButtonSizes = keyof typeof sizes;
 export type ButtonVariants = keyof typeof variants;
