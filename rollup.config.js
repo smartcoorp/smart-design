@@ -16,6 +16,17 @@ const plugins = [
   typescript({
     tsconfig: "./tsconfig.json",
     useTsconfigDeclarationDir: true,
+    tsconfigOverride: {
+      exclude: [
+        "./templates",
+        "./helpers",
+        "./shared",
+        "./dist/**/*",
+        "**/*.test.js",
+        "**/*.stories.tsx",
+        "./test-utils.tsx",
+      ],
+    },
   }),
   url({
     include: ["**/*.woff", "**/*.woff2", "**/*.ttf"],

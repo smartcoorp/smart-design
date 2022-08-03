@@ -1,4 +1,4 @@
-import { scale080, scale100, gray900 } from "./../tokens";
+import { scale080, scale100 } from "@tokens";
 import { createGlobalStyle } from "styled-components";
 
 export const BaseStyles = createGlobalStyle`

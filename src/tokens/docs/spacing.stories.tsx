@@ -1,13 +1,15 @@
 import React from "react";
+import styled, { css } from "styled-components";
+
 import { ComponentMeta } from "@storybook/react";
+import { Title, Subtitle, Primary } from "@storybook/addon-docs";
+
 import * as spacingTokens from "../spacing";
 
-import { Title, Subtitle, Primary } from "@storybook/addon-docs";
-import styled, { css } from "styled-components";
-import { gray900 } from "../../tokens";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { DesignSystemDocumentTable } from "../../../shared/design-tokens-document-table/design-tokens-document-table";
-import { Body } from "../../components";
+import { Body } from "@components";
+import { gray900 } from "@tokens";
+import { noCanvas } from "@helpers";
+import { DesignSystemDocumentTable } from "@shared";
 
 export default {
   title: "Tokens/Spacing",
@@ -39,8 +41,8 @@ const Line = styled.div<{ width: string }>`
   background: ${gray900};
 `;
 
-const SpacingPreview = ({ tokenValue }) => {
-  const width: number = (tokenValue.split("px")[0] / 122) * 100;
+const SpacingPreview = ({ tokenValue }: { tokenValue: string }) => {
+  const width: number = (parseFloat(tokenValue.split("px")[0]) / 122) * 100;
   return (
     <Preview>
       <Body size='small' noMargin>

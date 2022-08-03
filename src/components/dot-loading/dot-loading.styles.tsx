@@ -1,17 +1,12 @@
-import {
-  scale040,
-  scale050,
-  scale060,
-  scale100,
-  scale030,
-  scale080,
-  scale110,
-} from "../../../src/tokens";
 import styled, { css, keyframes } from "styled-components";
+
 import { DotLoadingSizes } from "./dot-loading.types";
+
+import { scale040, scale050, scale060, scale100, scale030, scale080, scale110 } from "@tokens";
 
 type DotLoadingTransientProps = {
   $size: DotLoadingSizes;
+  $disabled?: boolean;
 };
 
 const movementPx = {
@@ -80,41 +75,30 @@ const ellipsis3 = keyframes`
     transform: scale(0);
   }`;
 
-const Loader = styled.div<DotLoadingTransientProps>`
-  display: inline-flex;
-  position: relative;
-  ${({ $size }) => sizes[$size]}
+const Loader = styled.div<DotLoadingTransientProps>(
+  ({ $size }) => css`
+    display: inline-flex;
+    position: relative;
+    ${sizes[$size]}
+    div:nth-child(1) {
+      left: ${initialPx[$size]};
+      animation: ${ellipsis1} 0.6s infinite;
+    }
 
-  div:nth-child(1) {
-    ${({ $size }) =>
-      css`
-        left: ${initialPx[$size]};
-      `}
-    animation: ${ellipsis1} 0.6s infinite;
-  }
-
-  div:nth-child(2) {
-    ${({ $size }) =>
-      css`
-        left: ${initialPx[$size]};
-        animation: ${ellipsis2($size)} 0.6s infinite;
-      `}
-  }
-  div:nth-child(3) {
-    ${({ $size }) =>
-      css`
-        left: calc(${initialPx[$size]} + ${movementPx[$size]});
-        animation: ${ellipsis2($size)} 0.6s infinite;
-      `}
-  }
-  div:nth-child(4) {
-    ${({ $size }) =>
-      css`
-        left: calc(${initialPx[$size]} + ${movementPx[$size]} * 2);
-      `}
-    animation: ${ellipsis3} 0.6s infinite;
-  }
-`;
+    div:nth-child(2) {
+      left: ${initialPx[$size]};
+      animation: ${ellipsis2($size)} 0.6s infinite;
+    }
+    div:nth-child(3) {
+      left: calc(${initialPx[$size]} + ${movementPx[$size]});
+      animation: ${ellipsis2($size)} 0.6s infinite;
+    }
+    div:nth-child(4) {
+      left: calc(${initialPx[$size]} + ${movementPx[$size]} * 2);
+      animation: ${ellipsis3} 0.6s infinite;
+    }
+  `
+);
 
 const LoaderDot = styled.div<DotLoadingTransientProps>`
   position: absolute;
@@ -122,7 +106,8 @@ const LoaderDot = styled.div<DotLoadingTransientProps>`
   left: 0;
   ${({ $size }) => dotSizes[$size]}
   border-radius: 50%;
-  background: black;
+  background: ${({ theme, $disabled }) =>
+    $disabled ? theme.dotLoading.disabledColor : theme.color.neutral};
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 `;
 

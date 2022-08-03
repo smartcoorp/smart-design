@@ -1,6 +1,8 @@
 import React from "react";
+
 import { Styled } from "./button.styles";
 import { ButtonProps } from "./button.types";
+
 export const Button: React.FC<ButtonProps> = ({
   children,
   disabled = false,
@@ -42,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
     <Styled.InnerContent>
       {loading && (
         <Styled.LoadingContainer aria-hidden='true'>
-          <Styled.Loading size={size} />
+          <Styled.Loading size={size} disabled={disabled || loading} />
         </Styled.LoadingContainer>
       )}
       {Icon && (

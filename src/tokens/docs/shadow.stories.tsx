@@ -1,12 +1,14 @@
 import React from "react";
+import styled, { css } from "styled-components";
+
 import { ComponentMeta } from "@storybook/react";
+import { Title, Subtitle, Primary } from "@storybook/addon-docs";
+
 import * as shadowTokens from "../shadow";
 
-import { Title, Subtitle, Primary } from "@storybook/addon-docs";
-import styled, { css } from "styled-components";
-import { borderRadiusS } from "../../tokens";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { DesignSystemDocumentTable } from "../../../shared/design-tokens-document-table/design-tokens-document-table";
+import { noCanvas } from "@helpers";
+import { borderRadiusS } from "@tokens";
+import { DesignSystemDocumentTable } from "@shared";
 
 export default {
   title: "Tokens/Shadow",
@@ -37,7 +39,7 @@ const Preview = styled.div<PreviewProps>`
     `}
 `;
 
-const SpacingPreview = ({ tokenValue }) => {
+const SpacingPreview = ({ tokenValue }: { tokenValue: string }) => {
   return <Preview shadow={tokenValue} />;
 };
 

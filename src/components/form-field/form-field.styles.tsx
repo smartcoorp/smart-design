@@ -1,10 +1,11 @@
+import styled, { css } from "styled-components";
+
+import { FormFieldSize, FormFieldVariant } from "./form-field.types";
+
+import { Caption } from "../caption";
+
 import {
   borderRadiusS,
-  gray200,
-  gray300,
-  gray400,
-  gray500,
-  gray800,
   motionEasingEnter,
   motionTimeM,
   scale060,
@@ -22,11 +23,10 @@ import {
   scale260,
   spaceM,
   spaceXL,
+  mediaConfined,
+  mediaWide,
   red,
-} from "../../tokens";
-import styled, { css } from "styled-components";
-import { FormFieldSize, FormFieldVariant } from "./form-field.types";
-import { mediaConfined, mediaWide } from "../../tokens/media";
+} from "@tokens";
 
 type TextareaTransientProps = {
   $error?: boolean;
@@ -156,8 +156,6 @@ const baseLabel = (multiline?: boolean) => css`
   left: ${scale070};
   transform: translateY(-50%);
 
-  color: ${gray400};
-
   cursor: text;
 
   transition-property: top, left, padding, color, font-size;
@@ -170,7 +168,7 @@ const baseLabel = (multiline?: boolean) => css`
     position: absolute;
     width: ${borderWidth};
     height: 80%;
-    background-color: ${gray500};
+
     transform-origin: top;
 
     transform: scaleY(0) translateY(-50%);
@@ -192,10 +190,11 @@ const baseLabel = (multiline?: boolean) => css`
 
 const stateLabel = {
   enabled: css`
-    color: ${gray400};
+    color: ${({ theme }) => theme.formField.label.textColor};
   `,
   disabled: css`
-    color: ${gray800};
+    color: ${({ theme }) => theme.formField.label.disabledTextColor};
+
     cursor: not-allowed;
   `,
 };
@@ -219,14 +218,16 @@ const filledLabel = ($error?: boolean) => css`
   left: calc(${scale070} + ${borderWidth});
   padding: 0 10px;
 
-  background-color: white;
-  color: ${$error ? red : gray500};
+  background-color: ${({ theme }) => theme.backgroundScreen};
+  color: ${({ theme }) =>
+    $error ? theme.formField.errorColor : theme.formField.filledBorderColor} !important;
 
   transition-delay: 0ms;
 
   &::after,
   &::before {
-    background-color: ${$error ? red : gray500};
+    background-color: ${({ theme }) =>
+      $error ? theme.formField.errorColor : theme.formField.filledBorderColor};
 
     transform: scaleY(1) translateY(-50%);
     transition-duration: ${motionTimeM};
@@ -241,24 +242,26 @@ const baseInput = css`
   border: none;
   outline: none;
   border-radius: ${borderRadiusS};
+
+  color: ${({ theme }) => theme.color.neutral};
 `;
 
 const stateInput = {
   enabled: css`
-    background-color: ${gray200};
+    background-color: ${({ theme }) => theme.formField.input.backgroundColor};
     &:hover {
-      background-color: ${gray300};
+      background-color: ${({ theme }) => theme.formField.input.hoverBackgroundColor};
     }
   `,
   disabled: css`
-    background-color: ${gray500};
+    background-color: ${({ theme }) => theme.formField.input.disabledBackgroundColor};
     cursor: not-allowed;
   `,
 };
 
 const filledInput = ($error?: boolean) => css`
-  border: ${borderWidth} solid ${$error ? red : gray500};
-  background-color: white !important;
+  border: ${borderWidth} solid ${({ theme }) => ($error ? red : theme.formField.filledBorderColor)} !important;
+  background-color: ${({ theme }) => theme.backgroundScreen} !important;
   transition-delay: 0ms;
 
   &:hover {
@@ -267,8 +270,9 @@ const filledInput = ($error?: boolean) => css`
 `;
 
 /** Icon styles */
-const baseIcon = css`
-  color: ${gray500};
+const baseIcon = (filled?: boolean) => css`
+  color: ${({ theme }) => (filled ? theme.color.neutral : theme.formField.label.textColor)};
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,10 +281,6 @@ const baseIcon = css`
   top: 50%;
   left: calc(${spaceM});
   transform: translateY(-50%);
-`;
-
-const filledIcon = css`
-  color: black;
 `;
 
 const FormFieldContainer = styled.div`
@@ -380,12 +380,11 @@ const Label = styled.label<LabelTransientProps>`
 `;
 
 const IconWrapper = styled.div<IconTransientProps>`
-  ${baseIcon}
-  ${({ $hasFocus, $isFilled }) => ($hasFocus || $isFilled) && filledIcon}
+  ${({ $hasFocus, $isFilled }) => baseIcon($hasFocus || $isFilled)}
 `;
 
-const PasswordWrapper = styled.div`
-  color: ${gray500};
+const PasswordWrapper = styled.div<{ filled?: boolean }>`
+  color: ${({ theme, filled }) => (filled ? theme.color.neutral : theme.formField.label.textColor)};
 
   display: flex;
   align-items: center;
@@ -403,7 +402,10 @@ const ErrorMessageWrapper = styled.div`
   position: absolute;
   top: 100%;
   left: 0px;
-  color: ${red};
+`;
+
+const ErrorCaption = styled(Caption)`
+  color: ${({ theme }) => theme.formField.errorColor};
 `;
 
 export const Styled = {
@@ -414,5 +416,6 @@ export const Styled = {
   TextareaWrapper,
   IconWrapper,
   ErrorMessageWrapper,
+  ErrorCaption,
   PasswordWrapper,
 };

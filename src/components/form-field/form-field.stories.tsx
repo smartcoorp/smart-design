@@ -1,11 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { FormField as FormFieldComponent } from "./form-field";
-import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
-
 import { IoCaretUpCircle } from "react-icons/io5";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { FormFieldSize } from "./form-field.types";
 
 import {
   Title,
@@ -16,11 +10,13 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
-import styled from "styled-components";
-import { spaceXXL } from "../../tokens";
-import { iconArgs } from "../../../helpers/icon-args";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { FormField as FormFieldComponent } from "./form-field";
+import { FormFieldSize } from "./form-field.types";
+
+import { noCanvas, setPropDocumentation, iconArgs } from "@helpers";
+
 export default {
   title: "Component/FormField",
   component: FormFieldComponent,
@@ -52,10 +48,6 @@ export default {
     sizeWide: setPropDocumentation({ control: "inline-radio" }),
   },
 } as ComponentMeta<typeof FormFieldComponent>;
-
-const FormFieldWrapper = styled.div`
-  margin-bottom: ${spaceXXL};
-`;
 
 const Template: ComponentStory<typeof FormFieldComponent> = ({
   id,
@@ -97,9 +89,6 @@ Default.args = {
   label: "Default label",
   id: "default",
   size: "medium",
-};
-Default.parameters = {
-  ...noCanvas,
 };
 
 export const WithIcon = Template.bind({});

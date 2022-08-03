@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { scale010, spaceXXS } from "../tokens";
+import { scale010, spaceXXS } from "@tokens";
 
 type RingProps = {
   width?: string;

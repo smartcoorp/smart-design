@@ -155,6 +155,7 @@ export const gray800_RGBA: string = "46, 48, 57";
 export const gray900_RGBA: string = "31, 32, 40";
 
 //EXTRA
-/** Red color (HEX) token: **#ff4545** */ export const red: string = "#ff4545";
+/** Red color (HEX) token: **#cc0000** */ export const red: string = "#cc0000";
+/** Dark Red color (HEX) token: **#ff4d4d** */ export const darkRed: string = "#ff4d4d";
 /** Green color (HEX) token: **#68d94a** */ export const green: string = "#68d94a";
 /** Yellow color (HEX) token: **#ffd644** */ export const yellow: string = "#ffd644";

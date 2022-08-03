@@ -1,8 +1,4 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { DotLoading as DotLoadingComponent } from "./dot-loading";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
 
 import {
   Title,
@@ -10,11 +6,14 @@ import {
   Description,
   Primary,
   ArgsTable,
-  Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { DotLoading as DotLoadingComponent } from "./dot-loading";
+
+import { noCanvas, setPropDocumentation } from "@helpers";
+
 export default {
   title: "Component/Dot Loading",
   component: DotLoadingComponent,

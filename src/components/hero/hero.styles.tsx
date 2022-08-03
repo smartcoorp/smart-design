@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import type { HeroFontWeight, HeroSize } from "./hero.types";
+
 import {
   mediaConfined,
   mediaWide,
@@ -11,9 +13,7 @@ import {
   scale220,
   spaceL,
   spaceXL,
-} from "../../tokens";
-
-import type { HeroFontWeight, HeroSize } from "./hero.types";
+} from "@tokens";
 
 type HeroTransientProps = {
   $noMargin?: boolean;
@@ -25,6 +25,8 @@ type HeroTransientProps = {
 
 // *** Base ***
 const baseHero = css`
+  color: ${({ theme }) => theme.typography.heroTextColor};
+
   font-family: "Oswald", "Trebuchet MS", Arial, "Helvetica Neue", sans-serif;
   margin-left: 0;
   margin-right: 0;

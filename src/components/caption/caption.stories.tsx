@@ -1,6 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Caption } from "./caption";
+import styled from "styled-components";
 
 import {
   Title,
@@ -11,15 +10,15 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
 import { fontWeights, lineHeights } from "./caption.styles";
-import { scale080, scale360, space4XL, spaceM } from "../../tokens";
-import styled from "styled-components";
 import { CaptionFontWeight, CaptionLineHeight } from "./caption.types";
-import { noCanvas } from "../../../helpers/stories-helpers";
+import { Caption } from "./caption";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { setPropDocumentation, noCanvas } from "@helpers";
+import { scale080, scale360, space4XL, spaceM } from "@tokens";
+
 export default {
   title: "Typography/Caption",
   component: Caption,
@@ -50,7 +49,6 @@ export default {
 const Template: ComponentStory<typeof Caption> = (args) => <Caption {...args} />;
 
 export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
   children: "This is a caption text",
   fontWeight: "regular",

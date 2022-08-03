@@ -1,7 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Headline } from "./headline";
-import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
+import styled from "styled-components";
 
 import {
   Title,
@@ -12,14 +10,15 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { noCanvas } from "../../../helpers/stories-helpers";
-import styled from "styled-components";
-import { scale160, space4XL, spaceM } from "../../tokens";
+import { Headline } from "./headline";
 import { sizes } from "./headline.styles";
 import { HeadlineSize } from "./headline.types";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { scale160, space4XL, spaceM } from "@tokens";
+import { setPropDocumentation, noCanvas } from "@helpers";
+
 export default {
   title: "Typography/Headline",
   component: Headline,

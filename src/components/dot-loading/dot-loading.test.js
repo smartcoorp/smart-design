@@ -1,7 +1,8 @@
 import React from "react";
-import { render } from "@testing-library/react";
 
 import { DotLoading } from "./dot-loading";
+
+import { render } from "@test-utils";
 
 describe(`DotLoading`, () => {
   test("renders DotLoading", () => {

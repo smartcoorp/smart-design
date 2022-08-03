@@ -1,12 +1,14 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
-import * as borderRadiusTokens from "../borderRadius";
+import styled, { css } from "styled-components";
 
 import { Title, Subtitle, Primary } from "@storybook/addon-docs";
-import styled, { css } from "styled-components";
-import { primary } from "../../tokens";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { DesignSystemDocumentTable } from "../../../shared/design-tokens-document-table/design-tokens-document-table";
+import { ComponentMeta } from "@storybook/react";
+
+import * as borderRadiusTokens from "../borderRadius";
+
+import { primary } from "@tokens";
+import { noCanvas } from "@helpers";
+import { DesignSystemDocumentTable } from "@shared";
 
 export default {
   title: "Tokens/Border Radius",
@@ -37,7 +39,7 @@ const Preview = styled.div<PreviewProps>`
     `}
 `;
 
-const SpacingPreview = ({ tokenValue }) => {
+const SpacingPreview = ({ tokenValue }: { tokenValue: string }) => {
   return <Preview borderRadius={tokenValue} />;
 };
 

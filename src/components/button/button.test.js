@@ -1,10 +1,11 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { Router } from "react-router-dom";
+import { createMemoryHistory } from "history";
 
 import { Button } from "./button";
-import { Router } from "react-router-dom";
 
-import { createMemoryHistory } from "history";
+import { screen, fireEvent } from "@testing-library/react";
+import { render } from "@test-utils";
 
 const renderComponent = ({ children = "button", ...props } = {}) => {
   const history = createMemoryHistory();

@@ -1,5 +1,7 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import styled from "styled-components";
+import { IoBarChartSharp } from "react-icons/io5";
+
 import { Button } from "./button";
 
 import {
@@ -11,16 +13,11 @@ import {
   Primary,
   PRIMARY_STORY,
 } from "@storybook/addon-docs";
-import { setPropDocumentation } from "../../../helpers/set-prop-documentation";
-import styled from "styled-components";
-import { noCanvas } from "../../../helpers/stories-helpers";
-import { ButtonSizes } from "./button.types";
-import { Headline } from "../headline/headline";
-import { scale100 } from "../../tokens";
-import { iconArgs } from "../../../helpers/icon-args";
-import { IoBarChartSharp, IoAccessibilitySharp } from "react-icons/io5";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { noCanvas, iconArgs, setPropDocumentation } from "@helpers";
+import { spaceXL } from "@tokens";
+
 export default {
   title: "Component/Button",
   component: Button,
@@ -46,6 +43,7 @@ export default {
     theme: { table: { disable: true } },
     as: { table: { disable: true } },
     forwardedAs: { table: { disable: true } },
+    innerRef: { table: { disable: true } },
     icon: iconArgs,
     children: setPropDocumentation({ control: "text" }),
     to: setPropDocumentation({ control: "text" }),
@@ -68,162 +66,73 @@ Default.args = {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-const SizeContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 40px;
-  margin-bottom: ${scale100};
+  gap: ${spaceXL};
 `;
 
-const HeadlineComp = styled(Headline)``;
-
-const sizes = ["small", "medium", "large"];
-
-export const PrimaryVariant = () => {
+const ReferenceTemplate: ComponentStory<typeof Button> = (args) => {
   return (
     <Container>
-      {sizes.map((size) => {
-        return (
-          <>
-            <Headline noMargin>{size.charAt(0).toUpperCase() + size.slice(1)}</Headline>
-
-            <SizeContainer key={`primary_${size}`}>
-              <Button size={size as ButtonSizes} variant='primary'>
-                Primary{" "}
-              </Button>
-              <Button
-                size={size as ButtonSizes}
-                variant='primary'
-                icon={IoBarChartSharp}
-                iconSize={18}
-              >
-                Primary
-              </Button>
-              <Button
-                size={size as ButtonSizes}
-                variant='primary'
-                icon={IoBarChartSharp}
-                iconSize={18}
-              />
-              <Button size={size as ButtonSizes} variant='primary' loading icon={IoBarChartSharp}>
-                Primary
-              </Button>
-              <Button size={size as ButtonSizes} variant='primary' disabled>
-                Primary
-              </Button>
-            </SizeContainer>
-          </>
-        );
-      })}
+      <Button size='medium' variant={args.variant}>
+        {args.variant!.charAt(0).toUpperCase() + args.variant!.slice(1)}
+      </Button>
+      <Button size='medium' variant={args.variant} icon={args.icon} iconSize={args.iconSize}>
+        {args.variant!.charAt(0).toUpperCase() + args.variant!.slice(1)}
+      </Button>
+      <Button size='medium' variant={args.variant} icon={args.icon} iconSize={args.iconSize} />
+      <Button size='medium' variant={args.variant} loading icon={args.icon}>
+        {args.variant!.charAt(0).toUpperCase() + args.variant!.slice(1)}
+      </Button>
+      <Button size='medium' variant={args.variant} disabled>
+        {args.variant!.charAt(0).toUpperCase() + args.variant!.slice(1)}
+      </Button>
     </Container>
   );
 };
 
-export const SecondaryVariant = () => {
-  return (
-    <Container>
-      {sizes.map((size) => {
-        return (
-          <>
-            <Headline noMargin>{size.charAt(0).toUpperCase() + size.slice(1)}</Headline>
+export const PrimaryVariant = ReferenceTemplate.bind({});
+export const SecondaryVariant = ReferenceTemplate.bind({});
+export const TextVariant = ReferenceTemplate.bind({});
 
-            <SizeContainer key={`secondary_${size}`}>
-              <Button size={size as ButtonSizes} variant='secondary'>
-                Secondary{" "}
-              </Button>
-              <Button
-                size={size as ButtonSizes}
-                variant='secondary'
-                icon={IoBarChartSharp}
-                iconSize={18}
-              >
-                Secondary
-              </Button>
-              <Button
-                size={size as ButtonSizes}
-                variant='secondary'
-                icon={IoBarChartSharp}
-                iconSize={18}
-              />
-              <Button size={size as ButtonSizes} variant='secondary' loading icon={IoBarChartSharp}>
-                Secondary
-              </Button>
-              <Button size={size as ButtonSizes} variant='secondary' disabled>
-                Secondary
-              </Button>
-            </SizeContainer>
-          </>
-        );
-      })}
-    </Container>
-  );
+PrimaryVariant.args = {
+  variant: "primary",
+  icon: IoBarChartSharp,
+  iconSize: 18,
 };
-
-export const TextVariant = () => {
-  return (
-    <Container>
-      {sizes.map((size) => {
-        return (
-          <>
-            <Headline noMargin>{size.charAt(0).toUpperCase() + size.slice(1)}</Headline>
-
-            <SizeContainer key={`text_${size}`}>
-              <Button size={size as ButtonSizes} variant='text'>
-                Text{" "}
-              </Button>
-              <Button
-                size={size as ButtonSizes}
-                variant='text'
-                icon={IoBarChartSharp}
-                iconSize={18}
-              >
-                Text
-              </Button>
-              <Button
-                size={size as ButtonSizes}
-                variant='text'
-                icon={IoBarChartSharp}
-                iconSize={18}
-              />
-              <Button size={size as ButtonSizes} variant='text' loading icon={IoBarChartSharp}>
-                Text
-              </Button>
-              <Button size={size as ButtonSizes} variant='text' disabled>
-                Text
-              </Button>
-            </SizeContainer>
-          </>
-        );
-      })}
-    </Container>
-  );
-};
-
 PrimaryVariant.parameters = {
   ...noCanvas,
+
   docs: {
     description: {
-      story: "`Button` component primary variant with it's states and sizes",
+      story: "`Button` component **primary** variant with it's states",
     },
   },
+};
+
+SecondaryVariant.args = {
+  variant: "secondary",
+  icon: IoBarChartSharp,
+  iconSize: 18,
 };
 SecondaryVariant.parameters = {
   ...noCanvas,
   docs: {
     description: {
-      story: "`Button` component secondary variant with it's states and sizes",
+      story: "`Button` component **secondary** variant with it's states",
     },
   },
+};
+
+TextVariant.args = {
+  variant: "text",
+  icon: IoBarChartSharp,
+  iconSize: 18,
 };
 TextVariant.parameters = {
   ...noCanvas,
   docs: {
     description: {
-      story: "`Button` component text variant with it's states and sizes",
+      story: "`Button` component **text** variant with it's states",
     },
   },
 };
