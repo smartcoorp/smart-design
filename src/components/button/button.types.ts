@@ -16,6 +16,8 @@ type CommonProps = {
   disabled?: boolean;
   /** Hand over an icon component for the button */
   icon?: React.FC<{ size: number }>;
+  /** Icon position by default is left. Set this prop to place it right */
+  iconAfter?: boolean;
   /** Access the DOM node */
   innerRef?: React.RefObject<HTMLElement>;
   /** Loading state of the button */
