@@ -27,3 +27,19 @@ export interface FormFieldInputTypes {
   hoverBackgroundColor: string;
   disabledBackgroundColor: string;
 }
+
+/** Menu item interface */
+type MenuItem = {
+  disabledTextColor: string;
+  disabledBackgroundColor: string;
+  hoverBackgroundColor: string;
+};
+type MenuDivider = {
+  backgroundColor: string;
+};
+export interface Menu {
+  backgroundColor: string;
+  borderColor: string;
+  menuItem: MenuItem;
+  menuDivider: MenuDivider;
+}

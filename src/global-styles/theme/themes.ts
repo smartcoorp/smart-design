@@ -41,6 +41,7 @@ declare module "styled-components" {
       label: I.FormFieldLabelTyes;
       input: I.FormFieldInputTypes;
     };
+    menu: I.Menu;
   }
 }
 
@@ -88,6 +89,19 @@ export const lightTheme: DefaultTheme = {
       disabledBackgroundColor: gray500,
     },
   },
+  menu: {
+    backgroundColor: "white",
+    borderColor: gray100,
+
+    menuItem: {
+      hoverBackgroundColor: gray100,
+      disabledTextColor: gray400,
+      disabledBackgroundColor: gray300,
+    },
+    menuDivider: {
+      backgroundColor: gray300,
+    },
+  },
 };
 
 export const darkTheme: DefaultTheme = {
@@ -133,6 +147,18 @@ export const darkTheme: DefaultTheme = {
       backgroundColor: gray700,
       hoverBackgroundColor: gray600,
       disabledBackgroundColor: gray500,
+    },
+  },
+  menu: {
+    backgroundColor: gray800,
+    borderColor: gray700,
+    menuItem: {
+      hoverBackgroundColor: gray700,
+      disabledTextColor: gray400,
+      disabledBackgroundColor: gray600,
+    },
+    menuDivider: {
+      backgroundColor: gray600,
     },
   },
 };
