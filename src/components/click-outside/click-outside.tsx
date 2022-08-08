@@ -15,12 +15,17 @@ function useOutsideAlerter(ref: any, callback: any) {
   }, [ref, callback]);
 }
 
-export const ClickOutside: React.FC<ClickOutsideProps> = ({ children, callback, id }) => {
+export const ClickOutside: React.FC<ClickOutsideProps> = ({
+  children,
+  callback,
+  className,
+  id,
+}) => {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, callback);
 
   return (
-    <div id={id} ref={wrapperRef}>
+    <div className={className} id={id} ref={wrapperRef} data-testid='click-outside'>
       {children}
     </div>
   );

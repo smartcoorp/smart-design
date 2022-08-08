@@ -5,4 +5,6 @@ export type ClickOutsideProps = {
   callback: Function;
   /** Id of the component */
   id: string;
+  /** Include custom styles */
+  className?: string;
 };
