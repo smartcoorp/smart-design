@@ -23,7 +23,7 @@
       "@global-styles": ["src/global-styles/index.ts"],
       "@tokens": ["src/tokens/index.ts"],
       "@styles": ["./src/styles/index.ts"],
-      "@hooks": ["./src/styles/index.ts"],
+      "@hooks": ["./src/hooks/index.ts"],
       "@helpers": ["helpers/index.ts"],
       "@test-utils": ["test-utils.tsx"],
       "@shared": ["shared/index.ts"]
