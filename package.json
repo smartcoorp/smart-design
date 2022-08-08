@@ -61,6 +61,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "framer-motion": "^7.0.0",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   },
@@ -75,7 +76,8 @@
     "./components": "./dist/components/index.js",
     "./global-styles": "./dist/global-styles/index.js",
     "./tokens": "./dist/tokens/index.js",
-    "./styles": "./dist/styles/index.js"
+    "./styles": "./dist/styles/index.js",
+    "./hooks": "./dist/hooks/index.js"
   },
   "typesVersions": {
     "*": {
@@ -90,6 +92,9 @@
       ],
       "styles": [
         "dist/styles/index.d.ts"
+      ],
+      "hooks": [
+        "dist/hooks/index.d.ts"
       ]
     }
   },

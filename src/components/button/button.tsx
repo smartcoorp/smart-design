@@ -18,6 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   type,
   variant = "primary",
   iconSize: iconSizePx,
+  iconAfter,
   target = "_blank",
   ...props
 }) => {
@@ -47,12 +48,17 @@ export const Button: React.FC<ButtonProps> = ({
           <Styled.Loading size={size} disabled={disabled || loading} />
         </Styled.LoadingContainer>
       )}
-      {Icon && (
+      {Icon && !iconAfter && (
         <Styled.IconContainer $loading={loading}>
           <Icon size={iconSize} />
         </Styled.IconContainer>
       )}
       <Styled.Text $loading={loading}>{children}</Styled.Text>
+      {Icon && iconAfter && (
+        <Styled.IconContainer $loading={loading} $iconAfter>
+          <Icon size={iconSize} />
+        </Styled.IconContainer>
+      )}
     </Styled.InnerContent>
   );
 

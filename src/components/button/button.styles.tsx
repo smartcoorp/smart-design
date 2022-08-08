@@ -16,6 +16,7 @@ import {
   scale140,
   scale160,
   scale150,
+  spaceS,
 } from "@tokens";
 
 import { ButtonSizes, ButtonVariants } from "./button.types";
@@ -35,6 +36,7 @@ type ButtonTransientProps = {
 type IconContainerTransientProps = {
   $loading: boolean;
   $iconSize?: number;
+  $iconAfter?: boolean;
 };
 type TextTransientProps = {
   $ellipsis?: boolean;
@@ -60,7 +62,7 @@ const baseButton = css`
   text-decoration: none;
   vertical-align: top;
 
-  transition-property: transform, background-color, box-shadow;
+  transition-property: transform, background-color, box-shadow, border;
   transition-duration: ${motionTimeXS};
   transition-timing-function: ${motionEasingStandard};
 
@@ -142,7 +144,13 @@ export const variants = {
   text: css`
     color: ${({ theme }) => theme.color.neutral};
     padding: 0px !important;
-    height: 100% !important;
+    height: auto !important;
+    border-radius: 0;
+    border-bottom: 1px solid transparent;
+
+    &:focus-visible {
+      border-bottom: ${({ theme }) => `1px solid ${theme.color.neutral}`};
+    }
   `,
 };
 
@@ -166,7 +174,8 @@ export const disabled = {
 
 // *** Icon ***
 const IconContainer = styled.div<IconContainerTransientProps>`
-  margin-right: 8px;
+  margin-right: ${({ $iconAfter }) => !$iconAfter && spaceS};
+  margin-left: ${({ $iconAfter }) => $iconAfter && spaceS};
   display: flex;
   align-items: center;
   justify-content: center;

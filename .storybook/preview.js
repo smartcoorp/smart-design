@@ -14,49 +14,67 @@ export const parameters = {
   layout: "fullscreen",
 };
 const ThemeBlock = styled.div`
-  width: 100%;
-  height: 100%;
+  width: ${(props) => (props.vertical ? "50%" : "100%")};
+  height: ${(props) => (props.vertical ? "50vh" : "100%")};
   bottom: 0;
-  overflow: auto;
   padding: 32px;
   background: ${(props) => props.theme.backgroundScreen};
 `;
 
+const Container = styled.div`
+  display: flex;
+`;
 const withTheme = (StoryFn, context) => {
   const { theme } = context.globals;
   switch (theme) {
-    case "side-by-side": {
+    case "horizontal-side-by-side": {
       return (
-        <>
+        <MemoryRouter initialEntries={["/"]}>
           <Theme theme={"light"}>
             <GlobalStyles />
             <ThemeBlock left>
-              <MemoryRouter>
-                <StoryFn />
-              </MemoryRouter>
+              <StoryFn />
             </ThemeBlock>
           </Theme>
           <Theme theme={"dark"}>
             <GlobalStyles />
             <ThemeBlock>
-              <MemoryRouter>
-                <StoryFn />
-              </MemoryRouter>
+              <StoryFn />
             </ThemeBlock>
           </Theme>
-        </>
+        </MemoryRouter>
+      );
+    }
+    case "vertical-side-by-side": {
+      return (
+        <MemoryRouter initialEntries={["/"]}>
+          <Container>
+            <Theme theme={"light"}>
+              <GlobalStyles />
+              <ThemeBlock vertical>
+                <StoryFn />
+              </ThemeBlock>
+            </Theme>
+            <Theme theme={"dark"}>
+              <GlobalStyles />
+              <ThemeBlock vertical>
+                <StoryFn />
+              </ThemeBlock>
+            </Theme>
+          </Container>
+        </MemoryRouter>
       );
     }
     default: {
       return (
-        <Theme theme={theme}>
-          <GlobalStyles />
-          <ThemeBlock fill>
-            <MemoryRouter>
+        <MemoryRouter initialEntries={["/"]}>
+          <Theme theme={theme}>
+            <GlobalStyles />
+            <ThemeBlock fill>
               <StoryFn />
-            </MemoryRouter>
-          </ThemeBlock>
-        </Theme>
+            </ThemeBlock>
+          </Theme>
+        </MemoryRouter>
       );
     }
   }
@@ -72,7 +90,8 @@ export const globalTypes = {
       items: [
         { value: "light", icon: "circlehollow", title: "light" },
         { value: "dark", icon: "circle", title: "dark" },
-        { value: "side-by-side", icon: "sidebar", title: "side by side" },
+        { value: "vertical-side-by-side", icon: "sidebar", title: "vertical side by side" },
+        { value: "horizontal-side-by-side", icon: "sidebar", title: "horizontal side by side" },
       ],
       showName: true,
     },
