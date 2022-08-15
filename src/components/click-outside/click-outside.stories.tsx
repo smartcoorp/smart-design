@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ClickOutside } from "./click-outside";
+import { ClickOutside as ClickOutsideComponent } from "./click-outside";
 
 import {
   Title,
@@ -16,7 +16,7 @@ import { Button } from "../button";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Utility/ClickOutside",
-  component: ClickOutside,
+  component: ClickOutsideComponent,
   parameters: {
     docs: {
       page: () => (
@@ -35,16 +35,18 @@ export default {
     },
   },
   argTypes: {},
-} as ComponentMeta<typeof ClickOutside>;
+} as ComponentMeta<typeof ClickOutsideComponent>;
 
-const Template: ComponentStory<typeof ClickOutside> = (args) => {
+const Template: ComponentStory<typeof ClickOutsideComponent> = (args) => {
   const [buttonContent, setButtonContent] = useState<string>("Try clicking outside");
   return (
-    <ClickOutside id='test' callback={() => setButtonContent("NICE!! You clicked outside")}>
+    <ClickOutsideComponent
+      id='test'
+      callback={() => setButtonContent("NICE!! You clicked outside")}
+    >
       <Button onClick={() => setButtonContent("Try clicking outside")}>{buttonContent}</Button>
-    </ClickOutside>
+    </ClickOutsideComponent>
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const ClickOutside = Template.bind({});
