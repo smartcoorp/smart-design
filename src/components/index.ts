@@ -7,5 +7,5 @@ export { DotLoading } from "./dot-loading";
 export { FormField } from "./form-field";
 export { Menu, MenuDivider, MenuItem } from "./menu";
 export { ClickOutside } from "./click-outside";
-export { Grid, Col, Row } from "./grid-layout";
+export { Grid, Col, Row, ContainedGrid } from "./grid-layout";
 export { Container } from "./container";
