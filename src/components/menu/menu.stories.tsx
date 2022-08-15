@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Menu } from "./menu";
+import { Menu as MenuComponent } from "./menu";
 
 import {
   Title,
@@ -17,7 +17,7 @@ import { MenuDivider } from "./components";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Component/Menu",
-  component: Menu,
+  component: MenuComponent,
   parameters: {
     docs: {
       page: () => (
@@ -33,16 +33,15 @@ export default {
     },
   },
   argTypes: {},
-} as ComponentMeta<typeof Menu>;
+} as ComponentMeta<typeof MenuComponent>;
 
-const Template: ComponentStory<typeof Menu> = (args) => <Menu {...args} />;
+const Template: ComponentStory<typeof MenuComponent> = (args) => <MenuComponent {...args} />;
 
-export const MenuTemplate = Template.bind({});
+export const Menu = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-MenuTemplate.args = {
+Menu.args = {
   children: (
     <>
-      {/* <MenuHeader includeDivider>This is header that explains the menu</MenuHeader> */}
       <MenuItem to='test'>Categoria 1</MenuItem>
       <MenuItem to='test'>Teachers</MenuItem>
       <MenuDivider></MenuDivider>
