@@ -37,6 +37,12 @@ export const Col = styled.div<ColTransientProps>`
       css`
         flex-basis: ${($sizeConfined / 12) * 100}%;
       `}
+
+    ${({ $offsetConfined }) =>
+      $offsetConfined &&
+      css`
+        margin-left: ${($offsetConfined / 12) * 100}%;
+      `}
   }
 
   @media ${mediaWide} {
@@ -47,6 +53,12 @@ export const Col = styled.div<ColTransientProps>`
       $sizeWide &&
       css`
         flex-basis: ${($sizeWide / 12) * 100}%;
+      `}
+
+    ${({ $offsetWide }) =>
+      $offsetWide &&
+      css`
+        margin-left: ${($offsetWide / 12) * 100}%;
       `}
   }
 `;
