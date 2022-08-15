@@ -1,3 +1,20 @@
+# v0.1.18 (Mon Aug 15 2022)
+
+#### 🐛 Bug Fix
+
+- [SC-34] Build grid component (skip ci) [#24](https://github.com/smartcoorp/smart-design/pull/24) ([@pistachi73](https://github.com/pistachi73))
+- [SC-29] Build Menu component (skip ci) [#23](https://github.com/smartcoorp/smart-design/pull/23) ([@pistachi73](https://github.com/pistachi73))
+
+#### 📝 Documentation
+
+- [SC-30] Add Theme Provider and absolute imports (skip ci) [#22](https://github.com/smartcoorp/smart-design/pull/22) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.17 (Mon Aug 01 2022)
 
 #### 🐛 Bug Fix
