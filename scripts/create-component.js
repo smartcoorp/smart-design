@@ -56,7 +56,7 @@ fs.readdir(COMPONENT_TEMPLATE_FOLDER, (err, filenames) => {
         fileData = replaceIndex(
           fileData,
           "Component",
-          [2, 3, 4, 5, 7, 9, 10, 11, 12],
+          [2, 3, 4, 5, 6, 8, 10, 11, 12, 13],
           camelCaseComponentName
         );
         fileData = fileData.replace("storyType", capitalizeFirstLetter(type));

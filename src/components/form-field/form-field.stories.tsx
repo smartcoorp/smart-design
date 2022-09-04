@@ -9,6 +9,7 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
+  Source,
 } from "@storybook/addon-docs";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
@@ -26,7 +27,12 @@ export default {
         <>
           <Title>FormField</Title>
           <Subtitle>FormField component for SC projects</Subtitle>
+          <Description>##Overview</Description>
           <Description>`FormField` component is used as **Input** field for forms</Description>
+
+          <Description>##Usage</Description>
+          <Source language='tsx' code={`import { FormField } from @smart-design/components`} />
+          <Description>###Example</Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories title='References' />

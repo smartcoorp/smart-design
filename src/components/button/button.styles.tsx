@@ -142,31 +142,41 @@ export const variants = {
     }
   `,
   text: css`
+    position: relative;
     color: ${({ theme }) => theme.color.neutral};
     padding: 0px !important;
-    height: auto !important;
-    border-radius: 0;
-    border-bottom: 1px solid transparent;
+    border-radius: 0 !important;
+    border-bottom: 2px solid transparent;
 
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: calc(100% - 5px);
+      background-color: transparent;
+    }
     &:focus-visible {
-      border-bottom: ${({ theme }) => `1px solid ${theme.color.neutral}`};
+      &:after {
+        background-color: ${({ theme }) => theme.color.neutral};
+      }
     }
   `,
 };
 
 export const disabled = {
   primary: css`
-    background-color: ${({ theme }) => theme.button.primary.disabledBackgroundColor};
-    color: ${({ theme }) => theme.button.primary.disabledTextColor};
+    background-color: ${({ theme }) => theme.common.disabledBackgroundColor};
+    color: ${({ theme }) => theme.common.disabledSurfaceColor};
     cursor: not-allowed;
   `,
   secondary: css`
-    border: 2px solid ${({ theme }) => theme.button.secondary.disabledBorderColor};
-    color: ${({ theme }) => theme.button.secondary.disabledTextColor};
+    border: 2px solid ${({ theme }) => theme.common.disabledSurfaceColor};
+    color: ${({ theme }) => theme.common.disabledSurfaceColor};
     cursor: not-allowed;
   `,
   text: css`
-    color: ${({ theme }) => theme.button.text.disabledTextColor};
+    color: ${({ theme }) => theme.common.disabledSurfaceColor};
     padding: 0px !important;
     height: 100% !important;
   `,
@@ -187,10 +197,7 @@ const IconContainer = styled.div<IconContainerTransientProps>`
     `};
 `;
 
-type IconOnlyProps = {
-  size: ButtonSizes;
-};
-const iconOnly = ({ size }: IconOnlyProps) => css`
+const iconOnly = css`
   padding: 0;
   border-radius: 50%;
   & ${IconContainer} {
@@ -220,7 +227,7 @@ const Button = styled.button<ButtonTransientProps>`
       }
     `};
 
-  ${({ $iconOnly, $size }) => $iconOnly && iconOnly({ size: $size })};
+  ${({ $iconOnly }) => $iconOnly && iconOnly};
 `;
 
 const ExternalButton = styled.a<ButtonTransientProps>`
@@ -245,7 +252,7 @@ const ExternalButton = styled.a<ButtonTransientProps>`
       }
     `};
 
-  ${({ $iconOnly, $size }) => $iconOnly && iconOnly({ size: $size })};
+  ${({ $iconOnly }) => $iconOnly && iconOnly};
 `;
 
 const RouterButton = styled(Link)<ButtonTransientProps>`

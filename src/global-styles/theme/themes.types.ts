@@ -1,45 +1,48 @@
+import { dropShadowS } from "../../tokens/shadow";
 export interface ColorType {
   neutral: string;
   invertedNeutral: string;
 }
 
+/** shadows */
+export interface Shadow {
+  shadowS: string;
+  shadowM: string;
+  shadowL: string;
+  shadowXL: string;
+}
+
+/** Common color effects */
+export interface Common {
+  disabledBackgroundColor: string;
+  disabledSurfaceColor: string;
+  overBackgroundNeutral: string;
+  backgroundColor: string;
+  errorColor: string;
+}
 export interface PrimaryButtonTypes {
   hoverBackgroundColor: string;
-  disabledTextColor: string;
-  disabledBackgroundColor: string;
 }
 export interface SecondaryButtonTypes {
   hoverBackgroundColor: string;
-  disabledBorderColor: string;
-  disabledTextColor: string;
-}
-
-export interface TextButtonTypes {
-  disabledTextColor: string;
-}
-
-export interface FormFieldLabelTyes {
-  textColor: string;
-  disabledTextColor: string;
-}
-export interface FormFieldInputTypes {
-  backgroundColor: string;
-  hoverBackgroundColor: string;
-  disabledBackgroundColor: string;
 }
 
 /** Menu item interface */
 type MenuItem = {
-  disabledTextColor: string;
-  disabledBackgroundColor: string;
   hoverBackgroundColor: string;
 };
-type MenuDivider = {
-  backgroundColor: string;
-};
+
 export interface Menu {
-  backgroundColor: string;
-  borderColor: string;
   menuItem: MenuItem;
-  menuDivider: MenuDivider;
+}
+
+/** Select interface */
+type SelectItem = {
+  hoverBackgroundColor: string;
+  focusBackgroundColor: string;
+  selectedBackgroundColor: string;
+  selectedHoverBackgroundColor: string;
+};
+export interface Select {
+  selectItem: SelectItem;
 }

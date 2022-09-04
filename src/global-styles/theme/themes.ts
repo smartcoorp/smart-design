@@ -4,15 +4,26 @@ import {
   gray200,
   gray300,
   gray400,
-  gray500,
   gray600,
   gray700,
   gray800,
   gray900,
   primary400,
   primary600,
-  red,
-  darkRed,
+  dropShadowS,
+  dropShadowM,
+  dropShadowL,
+  dropShadowXL,
+  dropShadowDarkS,
+  dropShadowDarkM,
+  dropShadowDarkL,
+  dropShadowDarkXL,
+  primary100,
+  primary200,
+  primary700,
+  primary800,
+  red400,
+  red500,
 } from "@tokens";
 
 import * as I from "./themes.types";
@@ -21,6 +32,9 @@ declare module "styled-components" {
   export interface DefaultTheme {
     color: I.ColorType;
     backgroundScreen: string;
+    common: I.Common;
+    shadow: I.Shadow;
+
     typography: {
       bodyTextColor: string;
       headlineTextColor: string;
@@ -30,22 +44,27 @@ declare module "styled-components" {
     button: {
       primary: I.PrimaryButtonTypes;
       secondary: I.SecondaryButtonTypes;
-      text: I.TextButtonTypes;
     };
-    dotLoading: {
-      disabledColor: string;
-    };
-    formField: {
-      filledBorderColor: string;
-      errorColor: string;
-      label: I.FormFieldLabelTyes;
-      input: I.FormFieldInputTypes;
-    };
+
     menu: I.Menu;
+    select: I.Select;
   }
 }
 
 export const lightTheme: DefaultTheme = {
+  common: {
+    disabledBackgroundColor: gray100,
+    backgroundColor: gray200,
+    disabledSurfaceColor: gray300,
+    overBackgroundNeutral: gray400,
+    errorColor: red500,
+  },
+  shadow: {
+    shadowS: dropShadowS,
+    shadowM: dropShadowM,
+    shadowL: dropShadowL,
+    shadowXL: dropShadowXL,
+  },
   color: {
     neutral: "black",
     invertedNeutral: "white",
@@ -57,54 +76,46 @@ export const lightTheme: DefaultTheme = {
     heroTextColor: "black",
     captionTextColor: gray700,
   },
-  dotLoading: {
-    disabledColor: gray400,
-  },
+
   button: {
     primary: {
       hoverBackgroundColor: primary600,
-      disabledTextColor: gray400,
-      disabledBackgroundColor: gray300,
     },
     secondary: {
       hoverBackgroundColor: gray200,
-      disabledTextColor: gray400,
-      disabledBorderColor: gray300,
-    },
-    text: {
-      disabledTextColor: gray400,
     },
   },
 
-  formField: {
-    filledBorderColor: gray500,
-    errorColor: red,
-    label: {
-      textColor: gray500,
-      disabledTextColor: gray800,
-    },
-    input: {
-      backgroundColor: gray200,
-      hoverBackgroundColor: gray300,
-      disabledBackgroundColor: gray500,
-    },
-  },
   menu: {
-    backgroundColor: "white",
-    borderColor: gray100,
-
     menuItem: {
-      hoverBackgroundColor: gray100,
-      disabledTextColor: gray400,
-      disabledBackgroundColor: gray300,
+      hoverBackgroundColor: gray200,
     },
-    menuDivider: {
-      backgroundColor: gray300,
+  },
+
+  select: {
+    selectItem: {
+      hoverBackgroundColor: gray200,
+      focusBackgroundColor: gray300,
+      selectedBackgroundColor: primary100,
+      selectedHoverBackgroundColor: primary200,
     },
   },
 };
 
 export const darkTheme: DefaultTheme = {
+  common: {
+    disabledBackgroundColor: gray800,
+    backgroundColor: gray700,
+    disabledSurfaceColor: gray600,
+    overBackgroundNeutral: gray400,
+    errorColor: red400,
+  },
+  shadow: {
+    shadowS: dropShadowDarkS,
+    shadowM: dropShadowDarkM,
+    shadowL: dropShadowDarkL,
+    shadowXL: dropShadowDarkXL,
+  },
   color: {
     neutral: "white",
     invertedNeutral: "black",
@@ -116,49 +127,27 @@ export const darkTheme: DefaultTheme = {
     heroTextColor: "white",
     captionTextColor: gray300,
   },
-  dotLoading: {
-    disabledColor: gray400,
-  },
+
   button: {
     primary: {
       hoverBackgroundColor: primary400,
-      disabledTextColor: gray400,
-      disabledBackgroundColor: gray600,
     },
     secondary: {
-      hoverBackgroundColor: gray600,
-      disabledTextColor: gray400,
-      disabledBorderColor: gray600,
-    },
-    text: {
-      disabledTextColor: gray400,
+      hoverBackgroundColor: gray800,
     },
   },
 
-  formField: {
-    filledBorderColor: gray300,
-    errorColor: darkRed,
-
-    label: {
-      textColor: gray300,
-      disabledTextColor: gray800,
-    },
-    input: {
-      backgroundColor: gray700,
-      hoverBackgroundColor: gray600,
-      disabledBackgroundColor: gray500,
-    },
-  },
   menu: {
-    backgroundColor: gray800,
-    borderColor: gray700,
     menuItem: {
       hoverBackgroundColor: gray700,
-      disabledTextColor: gray400,
-      disabledBackgroundColor: gray600,
     },
-    menuDivider: {
-      backgroundColor: gray600,
+  },
+  select: {
+    selectItem: {
+      hoverBackgroundColor: gray700,
+      focusBackgroundColor: gray600,
+      selectedBackgroundColor: primary800,
+      selectedHoverBackgroundColor: primary700,
     },
   },
 };

@@ -6,6 +6,8 @@ export type BodyCopyFontWeight = keyof typeof fontWeights;
 export type BodyProps = React.ComponentProps<typeof Styled.Body> & {
   /** Content of the body copy */
   children: React.ReactNode;
+  /** Custom css className */
+  className?: string;
   /** Activate text truncation */
   ellipsis?: boolean;
   /** Set font-weight */

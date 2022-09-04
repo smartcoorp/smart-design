@@ -10,9 +10,9 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
+  Source,
 } from "@storybook/addon-docs";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "storyType/Component",
   component: Component,
@@ -22,7 +22,11 @@ export default {
         <>
           <Title>Component</Title>
           <Subtitle>Subtitle</Subtitle>
-          <Description>MDX description</Description>
+          <Description>##Overview</Description>
+          <Description>Description</Description>
+          <Description>##Usage</Description>
+          <Source language='tsx' code={`import { Component } from @smart-design/components`} />
+          <Description>###Example</Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories title='References' />

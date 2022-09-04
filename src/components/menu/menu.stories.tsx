@@ -10,11 +10,13 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
+  Source,
+  DescriptionType,
+  Subheading,
 } from "@storybook/addon-docs";
 import { MenuItem } from "./components/menu-item/menu-item";
 import { MenuDivider } from "./components";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Component/Menu",
   component: MenuComponent,
@@ -24,7 +26,12 @@ export default {
         <>
           <Title>Menu</Title>
           <Subtitle>Navigate Menu component</Subtitle>
+          <Description>##Overview</Description>
           <Description>`Menu` component is used as a navigation popover component</Description>
+          <Description>##Usage</Description>
+          <Source language='tsx' code={`import { Menu } from @smart-design/components`} />
+          <Description>###Example</Description>
+
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories title='References' />
@@ -35,10 +42,13 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof MenuComponent>;
 
-const Template: ComponentStory<typeof MenuComponent> = (args) => <MenuComponent {...args} />;
+const Template: ComponentStory<typeof MenuComponent> = (args, context) => {
+  const { storyId } = context;
+  return <MenuComponent {...args} id={`story${storyId}_${args.id}`} />;
+};
 
 export const Menu = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+
 Menu.args = {
   children: (
     <>
@@ -56,4 +66,5 @@ Menu.args = {
     </>
   ),
   triggerText: "Menu popover",
+  id: "menu",
 };

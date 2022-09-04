@@ -50,6 +50,7 @@
     "husky": "^8.0.1",
     "jest": "^28.1.2",
     "jest-environment-jsdom": "^28.1.2",
+    "react-hook-form": "^7.34.2",
     "react-icons": "^4.4.0",
     "rollup": "^2.76.0",
     "rollup-plugin-dts": "^4.2.2",

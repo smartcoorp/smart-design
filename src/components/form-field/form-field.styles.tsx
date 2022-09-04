@@ -25,7 +25,6 @@ import {
   spaceXL,
   mediaConfined,
   mediaWide,
-  red,
 } from "@tokens";
 
 type TextareaTransientProps = {
@@ -70,6 +69,7 @@ type IconTransientProps = {
   $hasFocus: boolean;
   $isDisabled?: boolean;
   $isFilled: boolean;
+  $error?: boolean;
 };
 
 export const variants = {
@@ -157,6 +157,7 @@ const baseLabel = (multiline?: boolean) => css`
   transform: translateY(-50%);
 
   cursor: text;
+  color: ${({ theme }) => theme.common.overBackgroundNeutral};
 
   transition-property: top, left, padding, color, font-size;
   transition-timing-function: ${motionEasingEnter};
@@ -188,16 +189,10 @@ const baseLabel = (multiline?: boolean) => css`
   }
 `;
 
-const stateLabel = {
-  enabled: css`
-    color: ${({ theme }) => theme.formField.label.textColor};
-  `,
-  disabled: css`
-    color: ${({ theme }) => theme.formField.label.disabledTextColor};
-
-    cursor: not-allowed;
-  `,
-};
+const disabledLabel = css`
+  color: ${({ theme }) => theme.common.disabledSurfaceColor};
+  pointer-events: none;
+`;
 
 const labelHasIcon = {
   small: css`
@@ -212,28 +207,61 @@ const labelHasIcon = {
     left: calc(${scale070} + ${scale110});
   `,
 };
-const filledLabel = ($error?: boolean) => css`
-  font-size: ${scale060};
-  top: calc(${borderWidth} / 2);
-  left: calc(${scale070} + ${borderWidth});
-  padding: 0 10px;
+const filledLabel = css`
+  font-size: ${scale060} !important;
+  top: calc(${borderWidth} / 2) !important;
+  left: calc(${scale070} + ${borderWidth}) !important;
+  padding: 0 ${spaceM};
 
   background-color: ${({ theme }) => theme.backgroundScreen};
-  color: ${({ theme }) =>
-    $error ? theme.formField.errorColor : theme.formField.filledBorderColor} !important;
-
+  color: ${({ theme }) => theme.common.overBackgroundNeutral};
   transition-delay: 0ms;
 
   &::after,
   &::before {
-    background-color: ${({ theme }) =>
-      $error ? theme.formField.errorColor : theme.formField.filledBorderColor};
+    background-color: ${({ theme }) => theme.common.overBackgroundNeutral};
 
     transform: scaleY(1) translateY(-50%);
     transition-duration: ${motionTimeM};
-
     transition-delay: ${motionTimeM};
   }
+`;
+const errorLabel = css`
+  color: ${({ theme }) => theme.common.errorColor};
+
+  &::before,
+  &::after {
+    background-color: ${({ theme }) => theme.common.errorColor};
+  }
+`;
+
+const Label = styled.label<LabelTransientProps>`
+  ${({ $multiline }) => baseLabel($multiline)}
+
+  ${({ $size }) => $size && sizes[$size].label}
+  ${({ $isIconSet, $size }) => $isIconSet && labelHasIcon[$size]}
+  ${({ $hasFocus, $isFilled }) => ($hasFocus || $isFilled) && filledLabel}
+  ${({ $isDisabled }) => $isDisabled && disabledLabel}
+  ${({ $error }) => $error && errorLabel}
+
+
+  ${({ $sizeConfined, $isIconSet }) =>
+    $sizeConfined &&
+    css`
+      @media ${mediaConfined} {
+        ${sizes[$sizeConfined].label}
+        ${$isIconSet && labelHasIcon[$sizeConfined]}
+      }
+    `};
+
+  ${({ $sizeWide, $isIconSet }) =>
+    $sizeWide &&
+    css`
+      @media ${mediaWide} {
+        ${sizes[$sizeWide].label}
+        ${$isIconSet && labelHasIcon[$sizeWide]}
+      }
+    `};
 `;
 
 /* Input styles */
@@ -242,60 +270,56 @@ const baseInput = css`
   border: none;
   outline: none;
   border-radius: ${borderRadiusS};
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 
   color: ${({ theme }) => theme.color.neutral};
-`;
+  background-color: ${({ theme }) => theme.common.backgroundColor};
 
-const stateInput = {
-  enabled: css`
-    background-color: ${({ theme }) => theme.formField.input.backgroundColor};
-    &:hover {
-      background-color: ${({ theme }) => theme.formField.input.hoverBackgroundColor};
-    }
-  `,
-  disabled: css`
-    background-color: ${({ theme }) => theme.formField.input.disabledBackgroundColor};
-    cursor: not-allowed;
-  `,
-};
+  border-width: ${borderWidth};
+  border-style: solid;
+  border-color: transparent;
 
-const filledInput = ($error?: boolean) => css`
-  border: ${borderWidth} solid ${({ theme }) => ($error ? red : theme.formField.filledBorderColor)} !important;
-  background-color: ${({ theme }) => theme.backgroundScreen} !important;
-  transition-delay: 0ms;
+  border-bottom-width: calc(${borderWidth} * 2);
+  border-bottom-color: ${({ theme }) => theme.common.overBackgroundNeutral};
 
   &:hover {
-    background-color: inherit;
+    border-bottom-color: ${({ theme }) => theme.color.neutral} !important;
   }
 `;
 
-/** Icon styles */
-const baseIcon = (filled?: boolean) => css`
-  color: ${({ theme }) => (filled ? theme.color.neutral : theme.formField.label.textColor)};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: calc(${spaceM});
-  transform: translateY(-50%);
+const disabledInput = (isFilled?: boolean) => css`
+  background-color: ${({ theme }) => theme.common.disabledBackgroundColor};
+  border-color: ${({ theme }) => isFilled && theme.common.disabledSurfaceColor} !important;
+  border-bottom-color: ${({ theme }) => theme.common.disabledSurfaceColor};
+  pointer-events: none;
 `;
 
-const FormFieldContainer = styled.div`
-  position: relative;
-  width: 400px;
+const filledInput = css`
+  color: ${({ theme }) => theme.color.neutral};
+  border-top-color: ${({ theme }) => theme.common.overBackgroundNeutral};
+  border-left-color: ${({ theme }) => theme.common.overBackgroundNeutral};
+  border-right-color: ${({ theme }) => theme.common.overBackgroundNeutral};
+  background-color: ${({ theme }) => theme.backgroundScreen};
+
+  transition-delay: 0ms;
+`;
+
+const errorInput = css`
+  border-color: ${({ theme }) => theme.common.errorColor};
+  border-bottom-color: ${({ theme }) => theme.common.errorColor};
 `;
 
 const Input = styled.input<InputTransientProps>`
   ${baseInput}
+
   ${({ $size }) => $size && sizes[$size].input}
   ${({ $size, $isIconSet }) => $isIconSet && inputHasIcon[$size]}
   ${({ $size, $variant }) => $variant && variants[$variant][$size]}
 
-  ${({ $isFilled, $hasFocus, $error }) => ($isFilled || $hasFocus) && filledInput($error)}
-  ${({ $isDisabled }) => ($isDisabled ? stateInput.disabled : stateInput.enabled)}
+  ${({ $isFilled, $hasFocus }) => ($isFilled || $hasFocus) && filledInput}
+  ${({ $isDisabled, $isFilled }) => $isDisabled && disabledInput($isFilled)}
+  ${({ $error }) => $error && errorInput}
 
   ${({ $sizeConfined, $isIconSet, $variant }) =>
     $sizeConfined &&
@@ -324,11 +348,12 @@ const Textarea = styled.textarea<TextareaTransientProps>`
   min-height: ${scale230};
   padding-top: ${spaceM};
   line-height: 1.25;
+  resize: vertical;
 
   ${({ $size }) => $size && sizes[$size].input}
-  ${({ $isFilled, $hasFocus, $error }) => ($isFilled || $hasFocus) && filledInput($error)}
-  ${({ $isDisabled }) => ($isDisabled ? stateInput.disabled : stateInput.enabled)}
-
+  ${({ $isFilled, $hasFocus }) => ($isFilled || $hasFocus) && filledInput}
+  ${({ $isDisabled, $isFilled }) => $isDisabled && disabledInput($isFilled)}
+  ${({ $error }) => $error && errorInput}
 
     ${({ $sizeConfined }) =>
     $sizeConfined &&
@@ -351,40 +376,41 @@ const TextareaWrapper = styled.div`
   padding: 20px 0;
 `;
 
-const Label = styled.label<LabelTransientProps>`
-  ${({ $multiline }) => baseLabel($multiline)}
+/** Icon styles */
+const baseIcon = css`
+  color: ${({ theme }) => theme.common.overBackgroundNeutral};
 
-  ${({ $size }) => $size && sizes[$size].label}
-  ${({ $isIconSet, $size }) => $isIconSet && labelHasIcon[$size]}
-  ${({ $hasFocus, $isFilled, $error }) => ($hasFocus || $isFilled) && filledLabel($error)}
-  ${({ $isDisabled }) => ($isDisabled ? stateLabel.disabled : stateLabel.enabled)}
-
-
-  ${({ $sizeConfined, $isIconSet }) =>
-    $sizeConfined &&
-    css`
-      @media ${mediaConfined} {
-        ${$sizeConfined && sizes[$sizeConfined].label}
-        ${$isIconSet && labelHasIcon[$sizeConfined]}
-      }
-    `};
-
-  ${({ $sizeWide, $isIconSet }) =>
-    $sizeWide &&
-    css`
-      @media ${mediaWide} {
-        ${$sizeWide && sizes[$sizeWide].label}
-        ${$isIconSet && labelHasIcon[$sizeWide]}
-      }
-    `};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: calc(${spaceM});
+  transform: translateY(-50%);
 `;
 
+const disabledIcon = css`
+  color: ${({ theme }) => theme.common.disabledSurfaceColor};
+`;
+
+const errorIcon = css`
+  color: ${({ theme }) => theme.common.errorColor};
+`;
 const IconWrapper = styled.div<IconTransientProps>`
-  ${({ $hasFocus, $isFilled }) => baseIcon($hasFocus || $isFilled)}
+  ${baseIcon}
+
+  ${({ $isDisabled }) => $isDisabled && disabledIcon}
+  ${({ $error }) => $error && errorIcon}
 `;
 
-const PasswordWrapper = styled.div<{ filled?: boolean }>`
-  color: ${({ theme, filled }) => (filled ? theme.color.neutral : theme.formField.label.textColor)};
+const FormFieldContainer = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+const PasswordWrapper = styled.button`
+  color: ${({ theme }) => theme.common.overBackgroundNeutral};
 
   display: flex;
   align-items: center;
@@ -396,6 +422,11 @@ const PasswordWrapper = styled.div<{ filled?: boolean }>`
   transform: translateY(-50%);
 
   cursor: pointer;
+
+  &:focus {
+    color: ${({ theme }) => theme.color.neutral};
+    outline: none;
+  }
 `;
 
 const ErrorMessageWrapper = styled.div`
@@ -405,7 +436,7 @@ const ErrorMessageWrapper = styled.div`
 `;
 
 const ErrorCaption = styled(Caption)`
-  color: ${({ theme }) => theme.formField.errorColor};
+  color: ${({ theme }) => theme.common.errorColor};
 `;
 
 export const Styled = {
