@@ -9,3 +9,4 @@ export { Menu, MenuDivider, MenuItem } from "./menu";
 export { ClickOutside } from "./click-outside";
 export { Grid, Col, Row, ContainedGrid } from "./grid-layout";
 export { Container } from "./container";
+export { SingleSelect, MultipleSelect } from "./select";

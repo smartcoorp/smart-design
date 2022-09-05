@@ -107,7 +107,7 @@ const LoaderDot = styled.div<DotLoadingTransientProps>`
   ${({ $size }) => dotSizes[$size]}
   border-radius: 50%;
   background: ${({ theme, $disabled }) =>
-    $disabled ? theme.dotLoading.disabledColor : theme.color.neutral};
+    $disabled ? theme.common.disabledSurfaceColor : theme.color.neutral};
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 `;
 

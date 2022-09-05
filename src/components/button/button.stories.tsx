@@ -12,6 +12,7 @@ import {
   Stories,
   Primary,
   PRIMARY_STORY,
+  Source,
 } from "@storybook/addon-docs";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
@@ -28,11 +29,16 @@ export default {
         <>
           <Title>Button</Title>
           <Subtitle>Button component for SC projects</Subtitle>
+          <Description>##Overview</Description>
           <Description>
             Basic `Button` component to perform navigation inside / outside the project or to
             perform `onClick` events
           </Description>
-          <Primary></Primary>
+
+          <Description>##Usage</Description>
+          <Source language='tsx' code={`import { Button } from @smart-design/components`} />
+          <Description>###Example</Description>
+          <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories title='References' />
         </>

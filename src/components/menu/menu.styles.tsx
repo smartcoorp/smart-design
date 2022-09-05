@@ -1,4 +1,4 @@
-import { borderRadiusS, dropShadowM, scale350, spaceM } from "@tokens";
+import { borderRadiusS, scale350, spaceM, spaceS } from "@tokens";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -12,15 +12,15 @@ const MenuContainer = styled(motion.ul)`
 
   position: absolute;
   left: 0;
-  top: calc(100% + ${spaceM});
+  top: calc(100% + ${spaceS});
   z-index: 2000;
 
   transform-origin: top left;
 
-  background-color: ${({ theme }) => theme.menu.backgroundColor};
+  background-color: ${({ theme }) => theme.backgroundScreen};
   border-radius: ${borderRadiusS};
-  box-shadow: ${dropShadowM};
-  border: 1px solid ${({ theme }) => theme.menu.borderColor};
+  box-shadow: ${({ theme }) => theme.shadow.shadowM};
+  border: 1px solid ${({ theme }) => theme.common.overBackgroundNeutral};
 
   overflow: hidden;
 `;

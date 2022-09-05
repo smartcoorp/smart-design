@@ -38,6 +38,11 @@ export const FormField: React.FC<FormFieldProps> = ({
     onBlur && onBlur(e);
   };
 
+  const handlePasswordSwitch = () => {
+    document.getElementById(id)?.focus();
+    setShowPassword(!showPassword);
+  };
+
   const isFilled = typeof value === "number" ? value != 0 : value.length > 0;
   const iconSize = size === "small" ? 16 : 18;
   const passwordVariantType = showPassword ? "text" : "password";
@@ -46,7 +51,12 @@ export const FormField: React.FC<FormFieldProps> = ({
   return (
     <Styled.FormFieldContainer>
       {Icon && (
-        <Styled.IconWrapper $isDisabled={disabled} $isFilled={isFilled} $hasFocus={hasFocus}>
+        <Styled.IconWrapper
+          $isDisabled={disabled}
+          $isFilled={isFilled}
+          $hasFocus={hasFocus}
+          $error={error}
+        >
           <Icon size={iconSize} />
         </Styled.IconWrapper>
       )}
@@ -114,8 +124,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       {variant === "password" && !multiline && (
         <Styled.PasswordWrapper
           data-testid='formfield-password-switch'
-          filled={isFilled || hasFocus}
-          onClick={() => setShowPassword(!showPassword)}
+          onClick={handlePasswordSwitch}
         >
           {showPassword ? <BiShow size={18} /> : <BiHide size={18} />}
         </Styled.PasswordWrapper>

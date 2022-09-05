@@ -11,6 +11,7 @@ export const Body: React.FC<BodyProps> = ({
   size = "medium",
   sizeConfined,
   sizeWide,
+  className,
   ...props
 }) => {
   return (
@@ -23,6 +24,7 @@ export const Body: React.FC<BodyProps> = ({
       $sizeConfined={sizeConfined}
       $sizeWide={sizeWide}
       data-xds='Body'
+      className={className}
       {...props}
     >
       {children}

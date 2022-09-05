@@ -64,8 +64,8 @@ const stateLink = {
   disabled: css`
     pointer-events: none;
 
-    color: ${({ theme }) => theme.menu.menuItem.disabledTextColor};
-    background-color: ${({ theme }) => theme.menu.menuItem.disabledBackgroundColor};
+    color: ${({ theme }) => theme.common.disabledSurfaceColor};
+    background-color: ${({ theme }) => theme.common.disabledBackgroundColor};
 
     &:focus {
       outline: none;

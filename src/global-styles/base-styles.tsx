@@ -1,4 +1,4 @@
-import { scale080, scale100 } from "@tokens";
+import { borderRadiusXS, scale030, scale080, scale100 } from "@tokens";
 import { createGlobalStyle } from "styled-components";
 
 export const BaseStyles = createGlobalStyle`
@@ -9,6 +9,22 @@ export const BaseStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   
+  &::-webkit-scrollbar {
+    width: ${scale030};
+  }
+  &::-webkit-scrollbar-track {
+    background:  ${({ theme }) => theme.common.backgroundColor};
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: ${borderRadiusXS};
+    background:  ${({ theme }) => theme.common.disabledSurfaceColor};
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background:${({ theme }) => theme.common.overBackgroundNeutral};
+  }
+
   body {
     font-family: 'Montserrat', 'Trebuchet MS', Arial, 'Helvetica Neue', sans-serif;
     background: white;
@@ -31,6 +47,15 @@ export const BaseStyles = createGlobalStyle`
     text-decoration: none;
   }
   
+  button{
+    padding:0;
+    margin:0;
+    background: transparent;
+    outline: none;
+    border:none;
+    cursor: pointer;
+  }
+
   a:hover,
   a:focus {
   }

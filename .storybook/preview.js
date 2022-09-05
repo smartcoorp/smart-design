@@ -2,6 +2,7 @@ import React from "react";
 import { MemoryRouter } from "react-router-dom";
 import { GlobalStyles, Theme } from "../src/global-styles";
 import styled from "styled-components";
+import "../helpers/storybook.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -26,6 +27,9 @@ const Container = styled.div`
 `;
 const withTheme = (StoryFn, context) => {
   const { theme } = context.globals;
+
+  const story1Id = "1";
+  const story2Id = "2";
   switch (theme) {
     case "horizontal-side-by-side": {
       return (
@@ -33,13 +37,13 @@ const withTheme = (StoryFn, context) => {
           <Theme theme={"light"}>
             <GlobalStyles />
             <ThemeBlock left>
-              <StoryFn />
+              <StoryFn storyId={story1Id} />
             </ThemeBlock>
           </Theme>
           <Theme theme={"dark"}>
             <GlobalStyles />
             <ThemeBlock>
-              <StoryFn />
+              <StoryFn storyId={story2Id} />
             </ThemeBlock>
           </Theme>
         </MemoryRouter>
@@ -52,13 +56,13 @@ const withTheme = (StoryFn, context) => {
             <Theme theme={"light"}>
               <GlobalStyles />
               <ThemeBlock vertical>
-                <StoryFn />
+                <StoryFn storyId={story1Id} />
               </ThemeBlock>
             </Theme>
             <Theme theme={"dark"}>
               <GlobalStyles />
               <ThemeBlock vertical>
-                <StoryFn />
+                <StoryFn storyId={story2Id} />
               </ThemeBlock>
             </Theme>
           </Container>
@@ -84,7 +88,7 @@ export const globalTypes = {
   theme: {
     name: "Theme",
     description: "Global theme for components",
-    defaultValue: "light",
+    defaultValue: "vertical-side-by-side",
     toolbar: {
       icon: "circlehollow",
       items: [
