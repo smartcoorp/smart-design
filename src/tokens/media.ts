@@ -1,6 +1,9 @@
 /** Media query token:  **TINY** - *(0, 539px)* */
 export const mediaTiny: string = `(max-width: 539px)`;
 
+/** Media query token:  **SMALL** - *(539px, ∞)* */
+export const mediaSmall: string = `(min-width: 539px)`;
+
 /** Media query token:  **CONFINED** - *(740px, ∞)* */
 export const mediaConfined: string = `(min-width: 740px)`;
 

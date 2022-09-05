@@ -92,6 +92,7 @@ export const MediaQuerys = () => {
 
   const order = [
     "mediaTiny",
+    "mediaSmall",
     "mediaConfined",
     "mediaWide",
     "mediaXWide",

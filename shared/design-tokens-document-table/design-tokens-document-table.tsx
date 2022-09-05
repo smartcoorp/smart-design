@@ -1,7 +1,8 @@
 import React from "react";
 import * as S from "./design-tokens-document-table.styles";
 import { Body } from "../../src/components/body/body";
-import { Caption } from "../../src/components/caption/caption";
+import { Button } from "@components";
+import { AiOutlineCopy } from "react-icons/ai";
 
 type Props = {
   preview?: any;
@@ -45,9 +46,12 @@ export const DesignSystemDocumentTable: React.FC<Props> = ({
                 <Body size='small' noMargin>
                   {tokenKey}
                 </Body>
-                <S.NameButton onClick={() => copyToClipboard(tokenKey)}>
-                  <Caption noMargin>copy</Caption>
-                </S.NameButton>
+                <Button
+                  variant='text'
+                  icon={AiOutlineCopy}
+                  onClick={() => copyToClipboard(tokenKey)}
+                  size='small'
+                />
               </S.NameCell>
             </S.NameColumn>
             <S.ValueColumn as='td'>

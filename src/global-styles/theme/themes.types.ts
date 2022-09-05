@@ -46,3 +46,8 @@ type SelectItem = {
 export interface Select {
   selectItem: SelectItem;
 }
+
+/** Modal interface */
+export interface Modal {
+  backgroundColor: string;
+}

@@ -10,11 +10,10 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
+  Source,
 } from "@storybook/addon-docs";
-import { noCanvas } from "@helpers";
 import { Hero } from "../hero";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Layout/Container",
   component: ContainerComponent,
@@ -24,9 +23,13 @@ export default {
         <>
           <Title>Container</Title>
           <Subtitle>Container Component</Subtitle>
+          <Description>##Overview</Description>
           <Description>
             `Container` component is used to set `max-width` and left/right paddings for content
           </Description>
+          <Description>##Usage</Description>
+          <Source language='js' code={`import { Container } from @smart-design/components`} />
+          <Description>###Example</Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories title='References' />
@@ -44,11 +47,6 @@ const Template: ComponentStory<typeof ContainerComponent> = (args) => (
 );
 
 export const Container = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Container.args = {
   children: <Hero size='xlarge'>Container for content</Hero>,
-};
-
-Container.parameters = {
-  //...noCanvas,
 };

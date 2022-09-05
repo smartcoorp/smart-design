@@ -10,6 +10,7 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
+  Source,
 } from "@storybook/addon-docs";
 
 import { Grid } from ".";
@@ -17,7 +18,6 @@ import { Row } from "../row";
 import { Col } from "../col";
 import { ColOffset, ColSizes } from "../col/col.types";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Layout/Grid",
   component: Grid,
@@ -27,12 +27,16 @@ export default {
         <>
           <Title>Grid</Title>
           <Subtitle>Grid layout component</Subtitle>
+          <Description>##Overview</Description>
           <Description>
             `Grid` component is used for marking up the content of SC projects
           </Description>
           <Description>
             Inside `Grid` component, use `Row` and `Col` component to build different layouts
           </Description>
+          <Description>##Usage</Description>
+          <Source language='js' code={`import { Grid, Row, Col } from @smart-design/components`} />
+          <Description>###Example</Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories title='References' />
