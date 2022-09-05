@@ -9,6 +9,7 @@ import {
   Primary,
   ArgsTable,
   PRIMARY_STORY,
+  Source,
 } from "@storybook/addon-docs";
 
 import { Col as ColumnComponent } from "./index";
@@ -19,7 +20,6 @@ import { Row } from "../row";
 
 import { noCanvas } from "@helpers";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Layout/Grid/Column",
   component: ColumnComponent,
@@ -29,10 +29,14 @@ export default {
         <>
           <Title>Column</Title>
           <Subtitle>Column layout component</Subtitle>
+          <Description>##Overview</Description>
           <Description>
-            `Column` component inside `Row` component to size the content to a specific number of
-            columns. It goes from `1` to `12` columns
+            `Column` component goes inside `Row` component. It is used to determine how much space
+            is going to be used by some content inside the row. It goes from `1` to `12` columns
           </Description>
+          <Description>##Usage</Description>
+          <Source language='js' code={`import { Row, Col } from @smart-design/components`} />
+          <Description>###Example</Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
         </>

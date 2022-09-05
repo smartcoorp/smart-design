@@ -24,6 +24,8 @@ import {
   primary800,
   red400,
   red500,
+  gray900_RGBA,
+  gray800_RGBA,
 } from "@tokens";
 
 import * as I from "./themes.types";
@@ -48,6 +50,7 @@ declare module "styled-components" {
 
     menu: I.Menu;
     select: I.Select;
+    modal: I.Modal;
   }
 }
 
@@ -70,6 +73,7 @@ export const lightTheme: DefaultTheme = {
     invertedNeutral: "white",
   },
   backgroundScreen: "white",
+
   typography: {
     bodyTextColor: "black",
     headlineTextColor: "black",
@@ -99,6 +103,10 @@ export const lightTheme: DefaultTheme = {
       selectedBackgroundColor: primary100,
       selectedHoverBackgroundColor: primary200,
     },
+  },
+
+  modal: {
+    backgroundColor: `rgba(${gray900_RGBA}, 0.75)`,
   },
 };
 
@@ -149,5 +157,9 @@ export const darkTheme: DefaultTheme = {
       selectedBackgroundColor: primary800,
       selectedHoverBackgroundColor: primary700,
     },
+  },
+
+  modal: {
+    backgroundColor: `rgba(${gray800_RGBA}, 0.80)`,
   },
 };

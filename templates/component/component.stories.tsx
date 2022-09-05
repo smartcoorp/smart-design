@@ -25,7 +25,7 @@ export default {
           <Description>##Overview</Description>
           <Description>Description</Description>
           <Description>##Usage</Description>
-          <Source language='tsx' code={`import { Component } from @smart-design/components`} />
+          <Source language='js' code={`import { Component } from @smart-design/components`} />
           <Description>###Example</Description>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
