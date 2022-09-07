@@ -11,3 +11,4 @@ export { Grid, Col, Row, ContainedGrid } from "./grid-layout";
 export { Container } from "./container";
 export { SingleSelect, MultipleSelect } from "./select";
 export { Modal } from "./modal"
+export { Dialog } from "./dialog"
