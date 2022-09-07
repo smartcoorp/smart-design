@@ -13,6 +13,8 @@ export type ModalProps = React.ComponentProps<typeof Styled.ModalContainer> & {
   modalDescription: string;
   /** Root id of the portal where the modal is going to be rendered*/
   rootId: string;
-  /** @callback */
-  onClose: React.MouseEventHandler<HTMLButtonElement | HTMLDivElement | undefined>;
+  /** Callback executed when modal is closed bia closeIcon */
+  onClose?: React.MouseEventHandler<HTMLButtonElement | HTMLDivElement | undefined>;
+  /** Callback executed when modal background is clicked */
+  onBackgroundClick?: React.MouseEventHandler<HTMLDivElement | undefined>;
 };

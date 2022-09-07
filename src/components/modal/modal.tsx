@@ -55,6 +55,7 @@ export const Modal: React.FC<ModalProps> = ({
   show,
   closeIcon = false,
   onClose,
+  onBackgroundClick,
   rootId,
   modalDescription,
 }) => {
@@ -64,17 +65,17 @@ export const Modal: React.FC<ModalProps> = ({
     <AnimatePresence>
       {show && (
         <Styled.ModalBackground
-          className={className}
           key='modal-background'
           variants={backgroundVariants}
           initial='initial'
           animate='animate'
           exit='initial'
-          onClick={onClose}
+          onClick={onBackgroundClick}
           data-testid='modal-background'
           aria-hidden={!show}
         >
           <Styled.ModalContainer
+            className={className}
             variants={bodyVariants}
             onClick={(e: any) => e.stopPropagation()}
             role='dialog'

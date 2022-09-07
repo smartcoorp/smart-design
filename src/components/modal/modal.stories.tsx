@@ -66,10 +66,12 @@ const CustomButton = styled(Button)`
 const Template: ComponentStory<typeof ModalComponent> = (args) => {
   const [show, setShow] = useState(false);
 
+  const closeModal = () => setShow(false);
+
   return (
     <>
       <Button onClick={() => setShow(true)}>Open Modal</Button>
-      <ModalComponent {...args} show={show} onClose={() => setShow(false)}>
+      <ModalComponent {...args} show={show} onClose={closeModal} onBackgroundClick={closeModal}>
         <Headline size='xlarge'>Modal header</Headline>
         <Body>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum ante sed ultrices

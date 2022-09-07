@@ -56,7 +56,7 @@ declare module "styled-components" {
 
 export const lightTheme: DefaultTheme = {
   common: {
-    disabledBackgroundColor: gray100,
+    disabledBackgroundColor: gray200,
     backgroundColor: gray200,
     disabledSurfaceColor: gray300,
     overBackgroundNeutral: gray400,

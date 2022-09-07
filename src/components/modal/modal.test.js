@@ -16,21 +16,18 @@ const renderModal = ({ show = false, ...rest } = {}) => {
   );
 };
 
+beforeAll(() => {
+  ReactDom.createPortal = jest.fn((element, node) => {
+    return element;
+  });
+});
+
+afterEach(() => {
+  ReactDom.createPortal.mockClear();
+  jest.clearAllMocks();
+});
+
 describe(`Modal`, () => {
-  beforeAll(() => {
-    ReactDom.createPortal = jest.fn((element, node) => {
-      return element;
-    });
-  });
-
-  afterEach(() => {
-    ReactDom.createPortal.mockClear();
-    jest.clearAllMocks();
-  });
-  test("renders Modal", () => {
-    render(<Modal />);
-  });
-
   it("should not render modal when show is false", () => {
     renderModal();
 
@@ -60,12 +57,12 @@ describe(`Modal`, () => {
   });
 
   it("should toggle onClose when background is clicked", () => {
-    const mockOnClose = jest.fn();
+    const mockOnBackgroundClick = jest.fn();
 
-    renderModal({ show: true, onClose: mockOnClose });
+    renderModal({ show: true, onBackgroundClick: mockOnBackgroundClick });
 
     fireEvent.click(screen.getByTestId("modal-background"));
 
-    expect(mockOnClose).toHaveBeenCalledTimes(1);
+    expect(mockOnBackgroundClick).toHaveBeenCalledTimes(1);
   });
 });
