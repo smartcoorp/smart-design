@@ -1,3 +1,16 @@
+# v0.1.20 (Wed Oct 12 2022)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of https://github.com/smartcoorp/smart-design ([@pistachi73](https://github.com/pistachi73))
+- add esm format to rollup config ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.19 (Wed Oct 12 2022)
 
 #### 🐛 Bug Fix
