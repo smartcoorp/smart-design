@@ -15,6 +15,7 @@ import {
   Source,
 } from "@storybook/addon-docs";
 import { Button } from "@components";
+import { noCanvas } from "@helpers";
 
 export default {
   title: "Component/Single Select",
@@ -127,6 +128,87 @@ return (
       rules={{ required: "This field is required" }}
     ></Controller>
 );`,
+    },
+  },
+};
+
+const TemplateTwo: ComponentStory<typeof SingleSelectComponent> = (args, context) => {
+  const { storyId } = context;
+
+  const options = [
+    { value: "mentor", label: "Mentoring" },
+    { value: "teaching", label: "Teaching" },
+    { value: "multiple", label: "Multiple" },
+    { value: "tutor", label: "Tutoring" },
+    { value: "1to1", label: "1 to 1" },
+    { value: "mixed", label: "Mixed" },
+    { value: "1to3", label: "1 to 3" },
+  ];
+
+  return <SingleSelectComponent {...args} options={options} id={`story${storyId}_${args.id}`} />;
+};
+
+export const SingleSelectWithoutLabel = TemplateTwo.bind({});
+
+SingleSelectWithoutLabel.args = {
+  labelDescription: "Username",
+  id: "single-select-without-label",
+};
+SingleSelectWithoutLabel.parameters = {
+  ...noCanvas,
+  docs: {
+    description: {
+      story: "`SingleSelect` without label",
+    },
+  },
+};
+
+export const DisabledSingleSelect = TemplateTwo.bind({});
+
+DisabledSingleSelect.args = {
+  label: "Disabled single slect",
+  disabled: true,
+  id: "disabled-single-select-without-values",
+};
+DisabledSingleSelect.parameters = {
+  ...noCanvas,
+  docs: {
+    description: {
+      story: "Disabled `SingleSelect` component with no values",
+    },
+  },
+};
+
+export const DisabledSingleSelectWithValues = TemplateTwo.bind({});
+
+DisabledSingleSelectWithValues.args = {
+  label: "Disabled single slect",
+  disabled: true,
+  id: "disabled-single-select-with-values",
+  defaultValue: "mentor",
+};
+DisabledSingleSelectWithValues.parameters = {
+  ...noCanvas,
+  docs: {
+    description: {
+      story: "Disabled `SingleSelect` component with values",
+    },
+  },
+};
+
+export const ErrorSingleSelect = TemplateTwo.bind({});
+
+ErrorSingleSelect.args = {
+  label: "Error single select",
+  error: true,
+  errorMessage: "This field is required",
+  id: "error-single-select",
+};
+ErrorSingleSelect.parameters = {
+  ...noCanvas,
+  docs: {
+    description: {
+      story: "`SingleSelect` component with `error` and `errorMessage`",
     },
   },
 };

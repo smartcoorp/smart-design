@@ -88,7 +88,7 @@ export const globalTypes = {
   theme: {
     name: "Theme",
     description: "Global theme for components",
-    defaultValue: "vertical-side-by-side",
+    defaultValue: "light",
     toolbar: {
       icon: "circlehollow",
       items: [

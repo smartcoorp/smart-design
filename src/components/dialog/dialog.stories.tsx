@@ -47,6 +47,10 @@ export default {
     theme: { table: { disable: true } },
     as: { table: { disable: true } },
     forwardedAs: { table: { disable: true } },
+    onClose: { type: "function" },
+    onBackgroundClick: { type: "function" },
+    onConfirm: { type: "function" },
+    onReject: { type: "function" },
   },
 } as ComponentMeta<typeof DialogComponent>;
 

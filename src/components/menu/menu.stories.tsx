@@ -39,7 +39,9 @@ export default {
       ),
     },
   },
-  argTypes: {},
+  argTypes: {
+    children: { type: "symbol" },
+  },
 } as ComponentMeta<typeof MenuComponent>;
 
 const Template: ComponentStory<typeof MenuComponent> = (args, context) => {
