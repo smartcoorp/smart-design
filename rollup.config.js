@@ -52,6 +52,7 @@ const folderBuilds = getFolders("./src").flatMap((folder) => {
         // ensure file destination is same as where the typings are
         file: `dist/${folder}/index.js`,
         sourcemap: true,
+        format: "esm",
         exports: "named",
       },
       plugins,
