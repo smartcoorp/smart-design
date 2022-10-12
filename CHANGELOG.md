@@ -1,3 +1,18 @@
+# v0.1.19 (Wed Oct 12 2022)
+
+#### 🐛 Bug Fix
+
+- [SC-38] Create checkbox component [#28](https://github.com/smartcoorp/smart-design/pull/28) ([@pistachi73](https://github.com/pistachi73))
+- [SC-37] Create dialog component (skip ci) [#27](https://github.com/smartcoorp/smart-design/pull/27) ([@pistachi73](https://github.com/pistachi73))
+- [SC-36] Create modal component (skip ci) [#26](https://github.com/smartcoorp/smart-design/pull/26) ([@pistachi73](https://github.com/pistachi73))
+- [SC-35] Build select multiselect component (skip ci) [#25](https://github.com/smartcoorp/smart-design/pull/25) ([@pistachi73](https://github.com/pistachi73))
+
+#### Authors: 1
+
+- Óscar Pulido ([@pistachi73](https://github.com/pistachi73))
+
+---
+
 # v0.1.18 (Mon Aug 15 2022)
 
 #### 🐛 Bug Fix
