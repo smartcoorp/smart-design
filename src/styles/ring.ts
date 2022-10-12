@@ -7,6 +7,11 @@ type RingProps = {
   offsetColor?: string;
   offset?: string;
 };
+
 export const ring = ({ width = scale010, color, offsetColor, offset = spaceXXS }: RingProps) => css`
   box-shadow: 0 0 0 ${offset} ${offsetColor ?? "white"}, 0 0 0 calc(${width} + ${offset}) ${color};
+
+  &:focus {
+    outline: none;
+  }
 `;

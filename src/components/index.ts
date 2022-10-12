@@ -12,3 +12,4 @@ export { Container } from "./container";
 export { SingleSelect, MultipleSelect } from "./select";
 export { Modal } from "./modal"
 export { Dialog } from "./dialog"
+export { Checkbox } from "./checkbox"
