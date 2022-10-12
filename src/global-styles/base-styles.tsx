@@ -9,7 +9,7 @@ export const BaseStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   
-  &::-webkit-scrollbar {
+  /* &::-webkit-scrollbar {
     width: ${scale030};
   }
   &::-webkit-scrollbar-track {
@@ -23,7 +23,7 @@ export const BaseStyles = createGlobalStyle`
 
   &::-webkit-scrollbar-thumb:hover {
     background:${({ theme }) => theme.common.overBackgroundNeutral};
-  }
+  } */
 
   body {
     font-family: 'Montserrat', 'Trebuchet MS', Arial, 'Helvetica Neue', sans-serif;
