@@ -51,3 +51,26 @@ export interface Select {
 export interface Modal {
   backgroundColor: string;
 }
+
+export interface ThemeType {
+  color: ColorType;
+  backgroundScreen: string;
+  common: Common;
+  shadow: Shadow;
+
+  typography: {
+    bodyTextColor: string;
+    headlineTextColor: string;
+    heroTextColor: string;
+    captionTextColor: string;
+  };
+
+  button: {
+    primary: PrimaryButtonTypes;
+    secondary: SecondaryButtonTypes;
+  };
+
+  menu: Menu;
+  select: Select;
+  modal: Modal;
+}

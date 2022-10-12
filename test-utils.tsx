@@ -1,12 +1,12 @@
 import React, { FC, ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
-import { GlobalStyles, Theme } from "@global-styles";
+import { GlobalStyles, ThemeProvider } from "@global-styles";
 
 const AllTheProviders: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Theme theme='light'>
+    <ThemeProvider theme='light'>
       <GlobalStyles>{children}</GlobalStyles>
-    </Theme>
+    </ThemeProvider>
   );
 };
 

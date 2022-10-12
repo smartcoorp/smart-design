@@ -28,33 +28,9 @@ import {
   gray800_RGBA,
 } from "@tokens";
 
-import * as I from "./themes.types";
+import { ThemeType } from "./themes.types";
 
-declare module "styled-components" {
-  export interface DefaultTheme {
-    color: I.ColorType;
-    backgroundScreen: string;
-    common: I.Common;
-    shadow: I.Shadow;
-
-    typography: {
-      bodyTextColor: string;
-      headlineTextColor: string;
-      heroTextColor: string;
-      captionTextColor: string;
-    };
-    button: {
-      primary: I.PrimaryButtonTypes;
-      secondary: I.SecondaryButtonTypes;
-    };
-
-    menu: I.Menu;
-    select: I.Select;
-    modal: I.Modal;
-  }
-}
-
-export const lightTheme: DefaultTheme = {
+export const lightTheme: ThemeType = {
   common: {
     disabledBackgroundColor: gray200,
     backgroundColor: gray200,
@@ -110,7 +86,7 @@ export const lightTheme: DefaultTheme = {
   },
 };
 
-export const darkTheme: DefaultTheme = {
+export const darkTheme: ThemeType = {
   common: {
     disabledBackgroundColor: gray800,
     backgroundColor: gray700,

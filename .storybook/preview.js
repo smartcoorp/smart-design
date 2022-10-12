@@ -1,6 +1,6 @@
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
-import { GlobalStyles, Theme } from "../src/global-styles";
+import { GlobalStyles, ThemeProvider } from "../src/global-styles";
 import styled from "styled-components";
 import "../helpers/storybook.css";
 
@@ -34,18 +34,18 @@ const withTheme = (StoryFn, context) => {
     case "horizontal-side-by-side": {
       return (
         <MemoryRouter initialEntries={["/"]}>
-          <Theme theme={"light"}>
+          <ThemeProvider theme={"light"}>
             <GlobalStyles />
             <ThemeBlock left>
               <StoryFn storyId={story1Id} />
             </ThemeBlock>
-          </Theme>
-          <Theme theme={"dark"}>
+          </ThemeProvider>
+          <ThemeProvider theme={"dark"}>
             <GlobalStyles />
             <ThemeBlock>
               <StoryFn storyId={story2Id} />
             </ThemeBlock>
-          </Theme>
+          </ThemeProvider>
         </MemoryRouter>
       );
     }
@@ -53,18 +53,18 @@ const withTheme = (StoryFn, context) => {
       return (
         <MemoryRouter initialEntries={["/"]}>
           <Container>
-            <Theme theme={"light"}>
+            <ThemeProvider theme={"light"}>
               <GlobalStyles />
               <ThemeBlock vertical>
                 <StoryFn storyId={story1Id} />
               </ThemeBlock>
-            </Theme>
-            <Theme theme={"dark"}>
+            </ThemeProvider>
+            <ThemeProvider theme={"dark"}>
               <GlobalStyles />
               <ThemeBlock vertical>
                 <StoryFn storyId={story2Id} />
               </ThemeBlock>
-            </Theme>
+            </ThemeProvider>
           </Container>
         </MemoryRouter>
       );
@@ -72,12 +72,12 @@ const withTheme = (StoryFn, context) => {
     default: {
       return (
         <MemoryRouter initialEntries={["/"]}>
-          <Theme theme={theme}>
+          <ThemeProvider theme={theme}>
             <GlobalStyles />
             <ThemeBlock fill>
               <StoryFn />
             </ThemeBlock>
-          </Theme>
+          </ThemeProvider>
         </MemoryRouter>
       );
     }
