@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, DefaultTheme } from "styled-components";
 import { ThemeProps } from "./theme.types";
 import { darkTheme, lightTheme } from "./themes";
 
@@ -9,8 +9,12 @@ export const Theme: React.FC<ThemeProps> = ({
   darkTheme: extraDarkTheme,
   theme: currentTheme,
 }) => {
-  const dark = extraDarkTheme ? { ...extraDarkTheme, ...darkTheme } : darkTheme;
-  const light = extraLightTheme ? { ...extraLightTheme, ...lightTheme } : lightTheme;
+  const dark: DefaultTheme & typeof darkTheme = extraDarkTheme
+    ? { ...extraDarkTheme, ...darkTheme }
+    : darkTheme;
+  const light: DefaultTheme & typeof lightTheme = extraLightTheme
+    ? { ...extraLightTheme, ...lightTheme }
+    : lightTheme;
 
   const theme = currentTheme === "light" ? light : dark;
 
